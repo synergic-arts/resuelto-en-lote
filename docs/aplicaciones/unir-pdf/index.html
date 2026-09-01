@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Une varios PDF online gratis, sin registro y sin subir tus documentos. Todo se procesa dentro de tu navegador.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; worker-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Unir PDF online gratis y sin subir archivos · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>UNIR <span>PDF</span></h1><p class="promise">Combina varios documentos en uno sin enviarlos a ningún servidor.</p></div>
+  </section>
+
+  <aside class="notice"><strong>Tus PDF no salen del dispositivo.</strong> No hay cuentas, subidas, límites diarios ni registro. La combinación se realiza dentro de un proceso aislado del navegador.</aside>
+
+  <section class="panel">
+    <label>1. Selecciona dos o más PDF
+      <input id="files" type="file" accept="application/pdf,.pdf" multiple>
+    </label>
+    <p class="muted">Máximo recomendado: 100 documentos y 250 MB en total. Puedes cambiar el orden o eliminar archivos antes de unirlos.</p>
+
+    <div id="summary" class="status" aria-live="polite">Todavía no has seleccionado documentos.</div>
+    <ol id="file-list" class="file-list" aria-label="Orden de los documentos"></ol>
+
+    <div class="actions">
+      <button id="merge" type="button" disabled>Unir PDF</button>
+      <button id="clear" class="secondary" type="button">Limpiar</button>
+    </div>
+    <p id="status" class="status" role="status" aria-live="polite">Elige los documentos en el orden aproximado que quieras.</p>
+    <div id="download-area" class="download-panel" hidden>
+      <strong id="result-summary"></strong>
+      <a id="download" class="button" download="pdf_unido.pdf">Descargar PDF unido</a>
+    </div>
+  </section>
+
+  <aside class="notice warning"><strong>Límites importantes.</strong> No admite PDF cifrados o protegidos. Las firmas digitales dejarán de ser válidas y algunos formularios, marcadores, adjuntos o elementos interactivos pueden no conservarse. Esta aplicación combina páginas; no desinfecta documentos de origen.</aside>
+
+  <footer>Comprueba el número, el orden y el contenido de las páginas antes de borrar o archivar los originales. Biblioteca incluida: pdf-lib 1.17.1, licencia MIT.</footer>
+</main>
+<script src="../../core.js"></script>
+<script src="app.js?v=20260901-2"></script>
+</body>
+</html>
