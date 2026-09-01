@@ -70,5 +70,12 @@
     URL.revokeObjectURL(url);
   }
 
-  return { relativePath, rankFiles, compareInventories, formatBytes, toCsv, downloadText };
+  function webpName(filename) {
+    const text = String(filename || "imagen").trim() || "imagen";
+    const dot = text.lastIndexOf(".");
+    const stem = dot > 0 ? text.slice(0, dot) : text;
+    return `${stem}.webp`;
+  }
+
+  return { relativePath, rankFiles, compareInventories, formatBytes, toCsv, downloadText, webpName };
 });

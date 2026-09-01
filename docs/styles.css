@@ -23,7 +23,7 @@ body {
 }
 
 a { color: var(--cyan); }
-a:focus-visible, button:focus-visible, input:focus-visible {
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
   outline: 3px solid var(--lime);
   outline-offset: 3px;
 }
@@ -74,8 +74,9 @@ button:disabled { cursor: not-allowed; opacity: .5; }
 .breadcrumbs { margin-bottom: 24px; font-size: 16px; }
 .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; align-items: end; }
 label { display: grid; gap: 8px; font-weight: 700; }
-input[type="number"] { width: 100%; min-height: 46px; border: 1px solid var(--line); border-radius: 10px; background: #071a35; color: var(--ink); padding: 9px 12px; font: inherit; }
+input[type="number"], select { width: 100%; min-height: 46px; border: 1px solid var(--line); border-radius: 10px; background: #071a35; color: var(--ink); padding: 9px 12px; font: inherit; }
 input[type="file"] { width: 100%; color: var(--muted); }
+input[type="range"] { width: 100%; accent-color: var(--lime); }
 .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; }
 .status { min-height: 30px; margin: 18px 0; color: var(--muted); }
 .table-wrap { overflow: auto; border: 1px solid var(--line); border-radius: 14px; }
@@ -84,6 +85,9 @@ th, td { padding: 11px 13px; text-align: left; border-bottom: 1px solid #1f4169;
 th { position: sticky; top: 0; background: #10294f; color: var(--cyan); }
 td:first-child { max-width: 560px; overflow-wrap: anywhere; }
 .empty { padding: 28px; text-align: center; color: var(--muted); }
+.result-list { display: grid; gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
+.result-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: #071a35; }
+.result-item strong, .result-item span { overflow-wrap: anywhere; }
 footer { margin-top: 42px; color: var(--muted); font-size: 15px; }
 .compact h1 { font-size: clamp(36px, 6vw, 64px); }
 
@@ -92,4 +96,5 @@ footer { margin-top: 42px; color: var(--muted); font-size: 15px; }
   .hero { grid-template-columns: 1fr; gap: 16px; }
   .hero img { width: 92px; height: 92px; }
   .card, .panel { padding: 20px; }
+  .result-item { grid-template-columns: 1fr; }
 }

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Convierte muchas imágenes a WebP directamente en tu navegador, sin subirlas a ningún servidor.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Convertir imágenes a WebP · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>IMÁGENES A <span>WEBP</span></h1><p class="promise">Reduce el peso de muchas imágenes sin instalar nada.</p></div>
+  </section>
+
+  <aside class="notice"><strong>Procesamiento local.</strong> Tus imágenes se convierten dentro del navegador. No se envían a Internet, no se guardan en un servidor y los originales permanecen intactos.</aside>
+
+  <section class="panel">
+    <div class="controls">
+      <label>1. Selecciona las imágenes
+        <input id="files" type="file" accept="image/*" multiple>
+      </label>
+      <label>2. Calidad: <output id="quality-value" for="quality">82 %</output>
+        <input id="quality" type="range" min="40" max="100" value="82" step="1">
+      </label>
+      <label>3. Destino
+        <select id="destination">
+          <option value="folder">Carpeta elegida (recomendado)</option>
+          <option value="downloads">Descargas individuales</option>
+        </select>
+      </label>
+    </div>
+    <p class="muted">La aplicación admite los formatos que pueda abrir tu navegador. La conversión elimina metadatos como EXIF y ubicación. Si eliges una carpeta de destino, nunca sobrescribe un archivo existente.</p>
+    <div class="actions">
+      <button id="convert" type="button" disabled>Elegir destino y convertir</button>
+      <button id="clear" class="secondary" type="button">Limpiar</button>
+    </div>
+    <p id="compatibility" class="warning" hidden></p>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona una o varias imágenes.</p>
+    <ul id="results" class="result-list" aria-label="Resultados de la conversión"></ul>
+  </section>
+
+  <footer>La reducción depende del contenido y de la calidad elegida. Comprueba visualmente los archivos WebP antes de borrar o archivar cualquier original.</footer>
+</main>
+<script src="../../core.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

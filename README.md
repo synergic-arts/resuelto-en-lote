@@ -12,6 +12,7 @@ Puedes abrir las aplicaciones web directamente o descargar la versión de Window
 | [Comparar Excel](tools/comparar-excel/) | Aplicación Windows | Dos `.xlsx`, clave única en primera columna | `diferencias_excel.xlsx` | Solo lectura de entradas |
 | [Comparar carpetas](tools/comparar-carpetas/) | [Abrir en la web](https://synergic-arts.github.io/resuelto-en-lote/aplicaciones/comparar-carpetas/) | Dos carpetas | Informe descargable | Solo lectura; SHA-256 opcional |
 | [Archivos que más ocupan](tools/archivos-grandes/) | [Abrir en la web](https://synergic-arts.github.io/resuelto-en-lote/aplicaciones/archivos-grandes/) | Una carpeta | Ranking y CSV | Solo lee nombre y tamaño |
+| Imágenes a WebP | [Abrir en la web](https://synergic-arts.github.io/resuelto-en-lote/aplicaciones/imagenes-webp/) | Una o varias imágenes | Copias `.webp` | Proceso local; originales intactos |
 | [Renombrar por fecha](tools/renombrar-por-fecha/) | Aplicación Windows | Archivos de una carpeta | Vista previa + CSV | No cambia nada sin confirmación |
 | [Vídeos a MP4](tools/videos-a-mp4/) | Aplicación Windows | Carpeta con vídeos | MP4 H.264/AAC + CSV | Originales intactos; requiere FFmpeg |
 | [Organizar fotos](tools/organizar-fotos/) | Aplicación Windows | Fotos en subcarpetas | Copias por año/mes + CSV | Vista previa; copia, no mueve |
