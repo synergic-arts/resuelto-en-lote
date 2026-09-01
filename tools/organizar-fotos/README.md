@@ -2,12 +2,6 @@
 
 Recorre subcarpetas, prioriza la fecha EXIF y usa la fecha de modificación cuando no existe. Sin `--apply` solo genera una vista previa CSV. Al aplicar, copia a `AAAA/MM` y conserva los originales.
 
-```powershell
-pip install -r requirements.txt
-python organizar_fotos.py C:/fotos C:/fotos_organizadas plan_fotos.csv
-python organizar_fotos.py C:/fotos C:/fotos_organizadas organizacion_aplicada.csv --apply
-```
+Descarga `organizar_fotos.exe`, ábrelo con doble clic y sigue el asistente. Primero genera una vista previa y no necesita Python.
 
-En Windows, `organizar_fotos.exe` abre un asistente si se ejecuta sin argumentos.
-
-La modificación no equivale siempre a la captura. La utilidad no detecta duplicados ni clasifica personas o lugares.
+La fecha de modificación no equivale siempre a la fecha de captura. La aplicación no detecta duplicados ni clasifica personas o lugares.

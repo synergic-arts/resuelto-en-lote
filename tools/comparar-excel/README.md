@@ -2,10 +2,6 @@
 
 Compara la hoja activa de dos `.xlsx` usando la primera columna como clave única. Informa filas añadidas, eliminadas y celdas modificadas.
 
-Límites: las cabeceras deben coincidir y las claves no deben repetirse. La utilidad informa diferencias; no decide qué versión es correcta.
+Descarga `comparar_excel.exe`, ábrelo con doble clic y elige las dos versiones y el informe de salida. No necesitas instalar Python.
 
-```powershell
-python comparar_excel.py original.xlsx actualizado.xlsx diferencias_excel.xlsx
-```
-
-Al abrir `comparar_excel.exe` sin argumentos aparece un asistente para ambas versiones y la salida.
+Las cabeceras deben coincidir y las claves no deben repetirse. La aplicación muestra las diferencias; tú decides qué versión es correcta.

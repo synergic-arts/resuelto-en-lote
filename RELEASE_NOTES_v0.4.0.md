@@ -1,8 +1,8 @@
 # Resuelto en Lote 0.4.0
 
-Esta versión amplía la colección a ocho utilidades para Windows.
+Esta versión amplía la colección a ocho aplicaciones para Windows.
 
-## Nuevas herramientas
+## Nuevas aplicaciones
 
 - `convertir_videos_a_mp4.exe`: convierte por lotes a MP4 H.264/AAC, conserva originales y genera un CSV. Requiere FFmpeg instalado.
 - `organizar_fotos.exe`: crea una vista previa y copia fotos a carpetas `AAAA/MM`, priorizando EXIF y evitando sobrescrituras.

@@ -2,10 +2,6 @@
 
 Une la hoja activa de todos los `.xlsx` de una carpeta. Escribe una sola cabecera y añade `archivo_origen` a cada fila.
 
-Límites: los libros deben compartir cabecera; no conserva estilos, macros ni gráficos. El resultado debe guardarse fuera de la carpeta de entrada.
+Descarga `unir_excel.exe`, ábrelo con doble clic y elige la carpeta y el archivo de salida en el asistente. No necesitas instalar Python.
 
-```powershell
-python unir_excel.py C:/ruta/entrada C:/ruta/excel_combinado.xlsx
-```
-
-Al abrir `unir_excel.exe` sin argumentos aparece un asistente que solicita carpeta y destino.
+Los libros deben compartir cabecera; la aplicación reúne los datos, pero no conserva estilos, macros ni gráficos. Guarda el resultado fuera de la carpeta de entrada.

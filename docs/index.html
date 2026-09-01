@@ -3,26 +3,43 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Resuelto en Lote · Herramientas que te ahorran horas</title>
-  <meta name="description" content="Herramientas gratuitas para Excel, vídeos, fotos, PDF y archivos, con código, pruebas y descargas verificables.">
-  <style>
-    :root{color-scheme:dark;--bg:#04122e;--panel:#0b1d3b;--ink:#f8fafc;--muted:#b9c7db;--cyan:#12c7e7;--lime:#a0f514}
-    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0,#0d2c57,var(--bg) 45%);color:var(--ink);font:18px/1.55 system-ui,sans-serif}
-    main{max-width:1080px;margin:auto;padding:64px 24px}.hero{display:grid;grid-template-columns:150px 1fr;gap:34px;align-items:center;margin-bottom:48px}.hero img{width:150px}.kicker{color:var(--cyan);font-weight:800;text-transform:uppercase;letter-spacing:.12em}h1{font-size:clamp(44px,8vw,86px);line-height:.95;margin:8px 0}h1 span{color:var(--lime)}.promise{font-size:26px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}.card{background:linear-gradient(145deg,#10294f,var(--panel));border:1px solid #24466d;border-radius:20px;padding:26px}.card h2{margin-top:0}.button{display:inline-block;margin-top:12px;padding:11px 16px;border-radius:10px;background:var(--lime);color:#04122e;text-decoration:none;font-weight:800}.button.secondary{background:transparent;color:var(--cyan);border:1px solid var(--cyan)}footer{margin-top:44px;color:var(--muted);font-size:15px}@media(max-width:620px){.hero{grid-template-columns:1fr}.hero img{width:110px}}
-  </style>
+  <meta name="description" content="Aplicaciones gratuitas para Excel, PDF, fotos, vídeos y archivos. Úsalas en la web o descárgalas para Windows sin instalar Python.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Resuelto en Lote · Aplicaciones que te ahorran horas</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body><main>
-  <section class="hero"><img src="logo.png" alt="Logotipo de Resuelto en Lote"><div><div class="kicker">Automatización práctica</div><h1>RESUELTO EN <span>LOTE</span></h1><p class="promise">Herramientas que te ahorran horas.</p></div></section>
-  <section class="grid">
-    <article class="card"><h2>Unir Excel</h2><p>Combina muchos `.xlsx`, conserva una cabecera y registra el archivo de origen.</p><a class="button" href="https://github.com/synergic-arts/resuelto-en-lote/releases/latest/download/unir_excel.exe">Descargar .exe</a></article>
-    <article class="card"><h2>Comparar Excel</h2><p>Detecta altas, bajas y valores modificados. Genera un informe Excel revisable.</p><a class="button" href="https://github.com/synergic-arts/resuelto-en-lote/releases/latest/download/comparar_excel.exe">Descargar .exe</a></article>
-    <article class="card"><h2>Comparar carpetas</h2><p>Compara contenido por SHA-256 sin copiar, mover ni eliminar tus archivos.</p><a class="button" href="https://github.com/synergic-arts/resuelto-en-lote/releases/latest/download/comparar_carpetas.ps1">Descargar .ps1</a></article>
-    <article class="card"><h2>Archivos que más ocupan</h2><p>Crea un ranking CSV de los archivos más grandes sin borrar ni mover nada.</p><a class="button" href="https://github.com/synergic-arts/resuelto-en-lote/releases/latest/download/encontrar_archivos_grandes.ps1">Descargar .ps1</a></article>
-    <article class="card"><h2>Renombrar por fecha</h2><p>Prepara una vista previa y aplica nombres únicos por fecha sin sobrescribir archivos.</p><a class="button" href="https://github.com/synergic-arts/resuelto-en-lote/releases/latest/download/renombrar_archivos.ps1">Descargar .ps1</a></article>
-    <article class="card"><h2>Vídeos a MP4</h2><p>Convierte un lote a H.264 y AAC, conserva los originales y genera un informe.</p><a class="button" href="https://github.com/synergic-arts/resuelto-en-lote/releases/latest/download/convertir_videos_a_mp4.exe">Descargar .exe</a></article>
-    <article class="card"><h2>Organizar fotos</h2><p>Crea una vista previa y copia las fotos a carpetas por año y mes.</p><a class="button" href="https://github.com/synergic-arts/resuelto-en-lote/releases/latest/download/organizar_fotos.exe">Descargar .exe</a></article>
-    <article class="card"><h2>Tablas PDF a Excel</h2><p>Extrae tablas trazadas de PDF digitales y conserva la procedencia.</p><a class="button" href="https://github.com/synergic-arts/resuelto-en-lote/releases/latest/download/extraer_tablas_pdf.exe">Descargar .exe</a></article>
+<body>
+<main>
+  <section class="hero">
+    <img src="logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div>
+      <div class="kicker">Automatización práctica</div>
+      <h1>RESUELTO EN <span>LOTE</span></h1>
+      <p class="promise">Aplicaciones sencillas para resolver en minutos tareas que normalmente llevan horas.</p>
+    </div>
   </section>
-  <p><a class="button secondary" href="https://github.com/synergic-arts/resuelto-en-lote">Ver código, límites y checksums</a></p>
-  <footer>Ejecutables sin firma digital. Empieza con copias pequeñas y verifica SHA256SUMS.txt. Ninguna herramienta envía tus archivos a Internet.</footer>
-</main></body></html>
+
+  <aside class="notice">
+    <strong>Tus archivos siguen siendo tuyos.</strong> Las aplicaciones web procesan todo dentro del navegador y no suben los archivos a ningún servidor. No usamos cuentas, publicidad, analítica ni cookies.
+  </aside>
+
+  <section class="grid" aria-label="Aplicaciones disponibles">
+    <article class="card"><span class="badge">Windows</span><h2>Unir Excel</h2><p>Combina muchos archivos .xlsx en un solo libro y conserva el nombre de origen.</p><div class="actions"><a class="button" href="https://github.com/synergic-arts/resuelto-en-lote/releases/latest/download/unir_excel.exe">Descargar aplicación</a></div></article>
+    <article class="card"><span class="badge">Windows</span><h2>Comparar Excel</h2><p>Encuentra filas añadidas, eliminadas y valores modificados en dos versiones.</p><div class="actions"><a class="button" href="https://github.com/synergic-arts/resuelto-en-lote/releases/latest/download/comparar_excel.exe">Descargar aplicación</a></div></article>
+    <article class="card"><span class="badge web">Web privada</span><h2>Comparar carpetas</h2><p>Compara rutas, tamaños y, si quieres, el contenido mediante SHA-256. Solo lectura.</p><div class="actions"><a class="button" href="aplicaciones/comparar-carpetas/">Abrir en la web</a><a class="button secondary" href="https://github.com/synergic-arts/resuelto-en-lote/releases/latest/download/comparar_carpetas.exe">Windows</a></div></article>
+    <article class="card"><span class="badge web">Web privada</span><h2>Archivos que más ocupan</h2><p>Obtén un ranking por tamaño y descarga el resultado como CSV. No borra ni mueve nada.</p><div class="actions"><a class="button" href="aplicaciones/archivos-grandes/">Abrir en la web</a><a class="button secondary" href="https://github.com/synergic-arts/resuelto-en-lote/releases/latest/download/encontrar_archivos_grandes.exe">Windows</a></div></article>
+    <article class="card"><span class="badge">Windows</span><h2>Renombrar por fecha</h2><p>Prepara una vista previa y aplica nombres únicos únicamente después de confirmarlo.</p><div class="actions"><a class="button" href="https://github.com/synergic-arts/resuelto-en-lote/releases/latest/download/renombrar_por_fecha.exe">Descargar aplicación</a></div></article>
+    <article class="card"><span class="badge">Windows</span><h2>Vídeos a MP4</h2><p>Convierte varios vídeos a H.264/AAC y conserva intactos los originales.</p><div class="actions"><a class="button" href="https://github.com/synergic-arts/resuelto-en-lote/releases/latest/download/convertir_videos_a_mp4.exe">Descargar aplicación</a></div></article>
+    <article class="card"><span class="badge">Windows</span><h2>Organizar fotos</h2><p>Crea una vista previa y copia las fotografías a carpetas por año y mes.</p><div class="actions"><a class="button" href="https://github.com/synergic-arts/resuelto-en-lote/releases/latest/download/organizar_fotos.exe">Descargar aplicación</a></div></article>
+    <article class="card"><span class="badge">Windows</span><h2>Tablas PDF a Excel</h2><p>Extrae las tablas de varios PDF digitales y conserva su archivo y página de origen.</p><div class="actions"><a class="button" href="https://github.com/synergic-arts/resuelto-en-lote/releases/latest/download/extraer_tablas_pdf.exe">Descargar aplicación</a></div></article>
+  </section>
+
+  <div class="actions">
+    <a class="button secondary" href="https://github.com/synergic-arts/resuelto-en-lote">Ver el código y las comprobaciones</a>
+    <a class="button secondary" href="privacidad.html">Privacidad y seguridad</a>
+    <a class="button secondary" href="https://www.youtube.com/@ResueltoEnLote">Ver el canal</a>
+  </div>
+  <footer>Descarga únicamente desde el repositorio oficial y comprueba SHA256SUMS.txt. Las aplicaciones de Windows son portables y no están firmadas digitalmente.</footer>
+</main>
+</body>
+</html>

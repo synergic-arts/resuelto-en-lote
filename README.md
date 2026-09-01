@@ -1,28 +1,28 @@
 # Resuelto en Lote
 
-Herramientas gratuitas y reproducibles para resolver trabajos pesados con archivos.
+Aplicaciones gratuitas para resolver trabajos pesados con archivos sin tener que instalar Python ni escribir comandos.
 
-Cada utilidad de este repositorio tiene código fuente, caso de prueba y una descarga de Windows con SHA-256 publicada en la release correspondiente. No requieren conexión a Internet y no envían archivos a ningún servicio.
+Puedes abrir las aplicaciones web directamente o descargar la versión de Windows y hacer doble clic. Las aplicaciones web procesan los archivos dentro del navegador: no los suben a nuestros servidores. Cada aplicación incluye código fuente, pruebas y descargas verificables mediante SHA-256.
 
-## Herramientas
+## Aplicaciones
 
-| Utilidad | Entrada | Salida | Seguridad |
-|---|---|---|---|
-| [Unir Excel](tools/unir-excel/) | Carpeta de `.xlsx` con la misma cabecera | `excel_combinado.xlsx` | No modifica originales |
-| [Comparar Excel](tools/comparar-excel/) | Dos `.xlsx`, clave única en primera columna | `diferencias_excel.xlsx` | Solo lectura de entradas |
-| [Comparar carpetas](tools/comparar-carpetas/) | Dos carpetas | `comparacion_carpetas.csv` | No copia ni elimina |
-| [Archivos que más ocupan](tools/archivos-grandes/) | Carpeta o unidad | `archivos_mas_grandes.csv` | Solo consulta metadatos |
-| [Renombrar por fecha](tools/renombrar-por-fecha/) | Archivos de una carpeta | `plan_renombrado.csv` | Vista previa por defecto; no sobrescribe |
-| [Vídeos a MP4](tools/videos-a-mp4/) | Carpeta con vídeos | MP4 H.264/AAC + CSV | Originales intactos; requiere FFmpeg |
-| [Organizar fotos](tools/organizar-fotos/) | Fotos en subcarpetas | Copias por año/mes + CSV | Vista previa; copia, no mueve |
-| [Tablas PDF a Excel](tools/pdf-tablas-a-excel/) | PDF digitales con tablas trazadas | `tablas_pdf.xlsx` | Solo lectura; no incluye OCR |
+| Aplicación | Forma más sencilla | Entrada | Salida | Seguridad |
+|---|---|---|---|---|
+| [Unir Excel](tools/unir-excel/) | Aplicación Windows | Carpeta de `.xlsx` con la misma cabecera | `excel_combinado.xlsx` | No modifica originales |
+| [Comparar Excel](tools/comparar-excel/) | Aplicación Windows | Dos `.xlsx`, clave única en primera columna | `diferencias_excel.xlsx` | Solo lectura de entradas |
+| [Comparar carpetas](tools/comparar-carpetas/) | [Abrir en la web](https://synergic-arts.github.io/resuelto-en-lote/aplicaciones/comparar-carpetas/) | Dos carpetas | Informe descargable | Solo lectura; SHA-256 opcional |
+| [Archivos que más ocupan](tools/archivos-grandes/) | [Abrir en la web](https://synergic-arts.github.io/resuelto-en-lote/aplicaciones/archivos-grandes/) | Una carpeta | Ranking y CSV | Solo lee nombre y tamaño |
+| [Renombrar por fecha](tools/renombrar-por-fecha/) | Aplicación Windows | Archivos de una carpeta | Vista previa + CSV | No cambia nada sin confirmación |
+| [Vídeos a MP4](tools/videos-a-mp4/) | Aplicación Windows | Carpeta con vídeos | MP4 H.264/AAC + CSV | Originales intactos; requiere FFmpeg |
+| [Organizar fotos](tools/organizar-fotos/) | Aplicación Windows | Fotos en subcarpetas | Copias por año/mes + CSV | Vista previa; copia, no mueve |
+| [Tablas PDF a Excel](tools/pdf-tablas-a-excel/) | Aplicación Windows | PDF digitales con tablas trazadas | `tablas_pdf.xlsx` | Solo lectura; no incluye OCR |
 
 ## Descargas
 
-Descarga los ejecutables y scripts disponibles desde [la última release](https://github.com/synergic-arts/resuelto-en-lote/releases/latest). Los ejecutables son portables, no están firmados digitalmente y Windows puede mostrar SmartScreen. Verifica siempre `SHA256SUMS.txt`; el código exacto está en este repositorio.
+Descarga las aplicaciones portables desde [la última versión para Windows](https://github.com/synergic-arts/resuelto-en-lote/releases/latest). No hace falta instalar Python. Los ejecutables no están firmados digitalmente y Windows puede mostrar SmartScreen; verifica `SHA256SUMS.txt` y descarga únicamente desde este repositorio.
 
 ## Uso responsable
 
-Empieza con copias pequeñas, revisa la salida y conserva una copia de seguridad. Estas utilidades generan informes o archivos nuevos; nunca deben sustituir una revisión cuando los datos tengan consecuencias legales, contables o personales.
+Las aplicaciones de consulta no modifican los originales. Las que pueden cambiar nombres o crear copias muestran primero una vista previa o escriben en otra carpeta. Aun así, conserva una copia de seguridad cuando trabajes con archivos importantes.
 
-Canal: [Resuelto en Lote](https://www.youtube.com/@ResueltoEnLote) · Promesa: **Herramientas que te ahorran horas**.
+Canal: [Resuelto en Lote](https://www.youtube.com/@ResueltoEnLote) · Promesa: **Aplicaciones que te ahorran horas**.

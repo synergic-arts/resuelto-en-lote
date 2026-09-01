@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Encontrar archivos grandes · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../core.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body><main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Volver a las aplicaciones</a></nav>
+  <div class="kicker">Aplicación web de solo lectura</div>
+  <h1>Encuentra lo que más <span>ocupa</span></h1>
+  <p class="promise">Elige una carpeta, revisa los archivos más grandes y descarga un informe. No borra, mueve ni abre el contenido.</p>
+  <aside class="notice"><strong>Privacidad:</strong> los nombres y tamaños se procesan en este navegador. No se envía ningún archivo a Internet.</aside>
+  <section class="panel">
+    <div class="controls">
+      <label>Carpeta que quieres analizar<input id="folder" type="file" webkitdirectory directory multiple></label>
+      <label>Número de resultados<input id="limit" type="number" min="1" max="5000" value="100"></label>
+      <label>Tamaño mínimo en MB<input id="minimum" type="number" min="0" step="1" value="0"></label>
+    </div>
+    <div class="actions"><button id="analyse" disabled>Analizar carpeta</button><button id="download" class="secondary" disabled>Descargar CSV</button></div>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona una carpeta para empezar.</p>
+    <div class="table-wrap"><table><thead><tr><th>Puesto</th><th>Archivo</th><th>Tamaño</th></tr></thead><tbody id="results"><tr><td class="empty" colspan="3">Aún no hay resultados.</td></tr></tbody></table></div>
+  </section>
+</main></body>
+</html>

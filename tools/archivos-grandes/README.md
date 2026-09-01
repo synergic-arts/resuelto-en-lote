@@ -2,8 +2,6 @@
 
 Recorre una carpeta o unidad y genera un CSV con los archivos más grandes, ordenados de mayor a menor. Solo consulta ruta y tamaño: no borra, mueve ni modifica los archivos analizados.
 
-```powershell
-python encontrar_archivos_grandes.py C:\ archivos_mas_grandes.csv --limit 100 --minimum-mb 100
-```
+Puedes [abrir la aplicación web](https://synergic-arts.github.io/resuelto-en-lote/aplicaciones/archivos-grandes/) o descargar `encontrar_archivos_grandes.exe` para Windows. No necesitas instalar Python.
 
-En Windows también puedes ejecutar `encontrar_archivos_grandes.ps1`. Revisa siempre la ruta y la función de cada archivo antes de borrarlo.
+La aplicación no borra archivos. Revisa siempre la ruta y la función de cada elemento antes de decidir qué hacer con él.

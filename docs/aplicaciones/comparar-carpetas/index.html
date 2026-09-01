@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Comparar carpetas · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../core.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body><main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Volver a las aplicaciones</a></nav>
+  <div class="kicker">Aplicación web de solo lectura</div>
+  <h1>Compara dos <span>carpetas</span></h1>
+  <p class="promise">Localiza archivos que faltan o cuyo tamaño o contenido ha cambiado. La aplicación no copia, mueve ni elimina nada.</p>
+  <aside class="notice"><strong>Privacidad:</strong> el análisis se ejecuta en este navegador. Tus archivos no se suben a ningún servidor.</aside>
+  <section class="panel">
+    <div class="controls">
+      <label>Carpeta de origen<input id="left" type="file" webkitdirectory directory multiple></label>
+      <label>Carpeta de destino<input id="right" type="file" webkitdirectory directory multiple></label>
+    </div>
+    <p><label class="check"><input id="exact" type="checkbox" checked> Comparación completa mediante SHA-256. Lee el contenido para detectar cambios aunque el tamaño coincida.</label></p>
+    <p class="muted">Los archivos de más de 256 MB con el mismo tamaño se marcarán como «No verificado» en la versión web. Para ellos, usa la aplicación de Windows.</p>
+    <div class="actions"><button id="compare" disabled>Comparar carpetas</button><button id="download" class="secondary" disabled>Descargar CSV</button></div>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona las dos carpetas para empezar.</p>
+    <div class="table-wrap"><table><thead><tr><th>Archivo</th><th>Resultado</th><th>Origen</th><th>Destino</th></tr></thead><tbody id="results"><tr><td class="empty" colspan="4">Aún no hay resultados.</td></tr></tbody></table></div>
+  </section>
+</main></body>
+</html>
