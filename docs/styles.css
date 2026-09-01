@@ -92,6 +92,9 @@ td:first-child { max-width: 560px; overflow-wrap: anywhere; }
 .file-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 13px 15px; border: 1px solid var(--line); border-radius: 12px; background: #071a35; }
 .file-row > span:first-child { overflow-wrap: anywhere; }
 .file-actions { display: flex; flex-wrap: wrap; gap: 7px; }
+.options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1rem 0; }
+.options-grid label { display: grid; gap: .45rem; font-weight: 800; color: #dcecff; }
+.options-grid select { width: 100%; padding: .75rem .85rem; border-radius: 12px; border: 1px solid #315374; background: #071a35; color: #f4f8ff; font: inherit; }
 button.small { min-height: 38px; padding: 6px 11px; font-size: 15px; }
 .download-panel { margin-top: 18px; padding: 18px; border: 1px solid var(--lime); border-radius: 14px; background: #102b25; }
 .download-panel strong { display: block; margin-bottom: 12px; }

@@ -8,6 +8,7 @@ Puedes abrir las aplicaciones web directamente o descargar la versión de Window
 
 | Aplicación | Forma más sencilla | Entrada | Salida | Seguridad |
 |---|---|---|---|---|
+| Imágenes a PDF | [Abrir en la web](https://synergic-arts.github.io/resuelto-en-lote/aplicaciones/imagenes-a-pdf/) | Imágenes JPG o PNG | `imagenes.pdf` | Proceso local; no sube imágenes |
 | Unir PDF | [Abrir en la web](https://synergic-arts.github.io/resuelto-en-lote/aplicaciones/unir-pdf/) | Dos o más PDF sin cifrar | `pdf_unido.pdf` | Proceso aislado; no sube documentos |
 | [Unir Excel](tools/unir-excel/) | Aplicación Windows | Carpeta de `.xlsx` con la misma cabecera | `excel_combinado.xlsx` | No modifica originales |
 | [Comparar Excel](tools/comparar-excel/) | Aplicación Windows | Dos `.xlsx`, clave única en primera columna | `diferencias_excel.xlsx` | Solo lectura de entradas |
