@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Convierte CSV a JSON en el navegador, conserva las cabeceras y descarga los registros sin subir los datos.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Convertir CSV a JSON para APIs · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .csv-input, .json-output { width: 100%; min-height: 14rem; box-sizing: border-box; padding: 1rem; border: 1px solid #2b4f78; border-radius: .65rem; background: #071a35; color: #e2e8f0; font: 500 .95rem/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; resize: vertical; }
+    .json-output { max-height: 28rem; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .option-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(205px, 1fr)); gap: 1rem; margin: 1rem 0; }
+    .option-grid label { display: grid; gap: .45rem; font-weight: 800; }
+    .option-grid .check { display: flex; align-items: flex-start; padding-top: 2.1rem; }
+    .option-grid input[type="checkbox"] { margin-top: .35rem; accent-color: var(--lime); }
+  </style>
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>CSV A <span>JSON</span></h1><p class="promise">Convierte una tabla de Excel o una exportación en registros listos para una API o una aplicación.</p></div>
+  </section>
+  <aside class="notice"><strong>El archivo se queda en tu dispositivo.</strong> La lectura, la transformación y la descarga se realizan dentro de este navegador. No hay cuentas, subidas ni conexiones de red.</aside>
+  <section class="panel">
+    <label>1. Pega el CSV o carga un archivo<input id="file" type="file" accept=".csv,.tsv,.txt,text/csv,text/plain"></label>
+    <textarea id="csv-input" class="csv-input" spellcheck="false" placeholder="id,nombre,ciudad\n1,Ana,Madrid\n2,Luis,Valencia"></textarea>
+    <div class="option-grid">
+      <label>Separador<select id="delimiter"><option value="auto">Detectarlo automáticamente</option><option value=",">Coma (,)</option><option value=";">Punto y coma (;)</option><option value="tab">Tabulador</option><option value="|">Barra vertical (|)</option></select></label>
+      <label class="check"><input id="has-header" type="checkbox" checked> La primera fila contiene los nombres de campo</label>
+      <label class="check"><input id="trim" type="checkbox" checked> Recortar espacios exteriores</label>
+      <label class="check"><input id="pretty" type="checkbox" checked> Formatear el JSON para leerlo mejor</label>
+    </div>
+    <p class="muted">Los valores se mantienen como texto para no cambiar códigos como 00123, identificadores largos o referencias con ceros iniciales. Las comas, comillas escapadas y saltos de línea dentro de una celda se respetan.</p>
+    <div class="actions"><button id="convert" type="button" disabled>Convertir a JSON</button><button id="example" class="secondary" type="button">Probar con un ejemplo</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <p id="status" class="status" role="status" aria-live="polite">Pega un CSV o selecciona un archivo.</p>
+    <p id="summary" class="selection-summary">Todavía no hay resultados.</p>
+    <div id="preview" aria-live="polite"></div>
+    <pre id="json-output" class="json-output" aria-label="JSON convertido"></pre>
+    <div id="download-area" class="download-panel" hidden><strong>JSON listo</strong><div class="actions"><a id="download" class="button" download="datos-convertidos.json">Descargar JSON</a><button id="copy" class="secondary" type="button">Copiar JSON</button></div></div>
+  </section>
+  <aside class="notice warning"><strong>Una decisión deliberada.</strong> Este conversor no adivina tipos: fechas, importes, códigos y teléfonos se exportan como texto para evitar cambios silenciosos. Si una API necesita números o booleanos, conviértelos con el esquema que corresponda.</aside>
+  <footer>Comprueba la vista previa y valida el JSON en el sistema de destino antes de usarlo en producción.</footer>
+</main>
+<script src="../../core.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
