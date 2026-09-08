@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Une varios archivos CSV en un solo archivo dentro del navegador, sin subir tus datos.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Unir CSV en un solo archivo � Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">&larr; Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicaci&oacute;n web privada</div><h1>UNE <span>CSV</span></h1><p class="promise">Junta varios archivos CSV aunque sus columnas lleguen en distinto orden.</p></div>
+  </section>
+  <aside class="notice"><strong>Procesamiento local.</strong> Los archivos se leen y se combinan dentro de tu navegador. No se env&iacute;an a Internet y los originales no se modifican.</aside>
+  <section class="panel">
+    <div class="controls">
+      <label>1. Selecciona los archivos CSV<input id="files" type="file" accept=".csv,text/csv" multiple></label>
+      <label>2. Separador<select id="delimiter"><option value="auto">Detectarlo autom&aacute;ticamente</option><option value=",">Coma</option><option value=";">Punto y coma</option><option value="tab">Tabulador</option></select></label>
+    </div>
+    <p class="muted">La primera fila de cada archivo se usa como cabecera. Las columnas se alinean por nombre y las que falten quedan vac&iacute;as.</p>
+    <div class="actions"><button id="merge" type="button" disabled>Unir archivos CSV</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona uno o varios archivos CSV.</p>
+    <ul id="results" class="result-list" aria-label="Resultado de la uni&oacute;n"></ul>
+  </section>
+  <footer>M&aacute;ximo recomendado: 100 archivos y 200 MB por lote. Abre el CSV descargado con Excel o tu editor habitual y comprueba las columnas.</footer>
+</main>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
