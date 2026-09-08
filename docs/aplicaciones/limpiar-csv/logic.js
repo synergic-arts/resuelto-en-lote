@@ -45,7 +45,7 @@
         cell = "";
       } else if (char === "\n") {
         row.push(cell);
-        if (row.some((value) => value.trim() !== "") || row.length === 1) rows.push(row);
+        if (row.some((value) => value.trim() !== "") || row.length > 0) rows.push(row);
         row = [];
         cell = "";
       } else {

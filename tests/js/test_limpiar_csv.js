@@ -2,6 +2,7 @@
 
 const assert = require("node:assert/strict");
 const engine = require("../../public_repo/docs/aplicaciones/limpiar-csv/logic.js");
+assert.equal(engine.parseCsv("a;b\n;\n", ";").length, 2);
 
 const rows = engine.parseCsv('email;nombre;estado\n ana@example.com ; Ana ; activo\n\nANA@example.com;Ana;activo\n luis@example.com; Luis  ; pendiente\n', ";");
 assert.equal(rows.length, 5);
