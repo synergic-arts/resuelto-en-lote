@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Extrae páginas concretas de un PDF gratis y sin subir el documento. El resultado se crea en tu navegador.">
+  <meta name="robots" content="index,follow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; style-src 'self'; script-src 'self'; worker-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Extraer páginas de un PDF online gratis · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<main class="app-shell">
+  <nav><a href="../../">← Todas las aplicaciones</a></nav>
+  <header class="app-header">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="96" height="96">
+    <div><span class="eyebrow">Aplicación web privada</span><h1>EXTRAER PÁGINAS DE PDF</h1><p>Elige las páginas que necesitas y crea un PDF nuevo sin enviar el original a ningún servidor.</p></div>
+  </header>
+  <aside class="privacy-callout"><strong>El documento se queda en tu dispositivo.</strong> No hay cuentas, registro ni subidas. La lectura y la extracción se ejecutan en un proceso aislado del navegador.</aside>
+
+  <section class="tool-panel" aria-labelledby="step-file">
+    <label id="step-file" class="file-picker">1. Selecciona un PDF<input id="file" type="file" accept="application/pdf,.pdf"></label>
+    <div id="file-summary" class="selection-summary">Todavía no has seleccionado ningún documento.</div>
+    <label>2. Escribe las páginas que quieres extraer
+      <input id="pages" type="text" inputmode="numeric" placeholder="Ejemplo: 1-3, 7, 10" disabled>
+    </label>
+    <p id="page-help" class="help">Puedes usar páginas sueltas y rangos, por ejemplo: 1-3, 7, 10.</p>
+    <div class="button-row"><button id="extract" type="button" disabled>Extraer páginas</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <div id="status" class="status" role="status" aria-live="polite">Selecciona un PDF para empezar.</div>
+    <div id="download-area" class="download-panel" hidden><strong id="result-summary"></strong><a id="download" class="button download" download="paginas_extraidas.pdf">Descargar PDF nuevo</a></div>
+  </section>
+
+  <aside class="warning"><strong>Límites importantes.</strong> El documento debe poder abrirse sin contraseña. Las páginas se copian a un archivo nuevo; las firmas digitales, formularios, marcadores, adjuntos o elementos interactivos pueden no conservarse. Revisa el resultado antes de archivar el original.</aside>
+  <footer>Máximo recomendado: 250 MB por documento. Biblioteca incluida: pdf-lib 1.17.1, licencia MIT.</footer>
+</main>
+<script src="../../core.js"></script>
+<script src="app.js?v=20260903-1"></script>
+</body>
+</html>
