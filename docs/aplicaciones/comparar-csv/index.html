@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Compara dos archivos CSV y descubre filas añadidas, eliminadas y modificadas sin subir los datos a Internet.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Comparar dos CSV y encontrar diferencias · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .compare-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+    .diff-card { border-left:4px solid #64748b; background:#f8fafc; padding:.8rem 1rem; margin:.7rem 0; border-radius:.5rem; }
+    .diff-card.added { border-color:#16a34a; }.diff-card.removed { border-color:#dc2626; }.diff-card.changed { border-color:#d97706; }
+    .diff-card h3 { margin:.1rem 0 .35rem; font-size:1rem; }.diff-card p,.diff-card ul { margin:.2rem 0; }.diff-card li { margin:.2rem 0; }
+    @media (max-width:700px) { .compare-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>COMPARAR <span>CSV</span></h1><p class="promise">Encuentra en segundos qué filas han aparecido, desaparecido o cambiado.</p></div>
+  </section>
+  <aside class="notice"><strong>Tus datos se quedan en el navegador.</strong> Los dos archivos se leen y comparan en tu dispositivo. No hay cuentas, subidas, cookies ni conexiones a Internet.</aside>
+
+  <section class="panel">
+    <div class="compare-grid">
+      <label>Archivo A · versión anterior<input id="file-a" type="file" accept=".csv,.tsv,.txt,text/csv,text/tab-separated-values"></label>
+      <label>Archivo B · versión nueva<input id="file-b" type="file" accept=".csv,.tsv,.txt,text/csv,text/tab-separated-values"></label>
+    </div>
+    <div class="controls">
+      <label>Emparejar filas<select id="match-mode"><option value="key">Por columna clave (recomendado)</option><option value="position">Por posición</option></select></label>
+      <label>Separador<select id="delimiter"><option value="auto">Detectarlo automáticamente</option><option value=",">Coma (,)</option><option value=";">Punto y coma (;)</option><option value="\t">Tabulador</option></select></label>
+      <label class="check"><input id="has-header" type="checkbox" checked> La primera fila contiene encabezados</label>
+      <label>Columna clave<select id="key-column" disabled></select></label>
+    </div>
+    <p class="muted">La comparación por columna clave sigue funcionando aunque las filas estén en otro orden. Admite CSV, TSV y exportaciones de Excel guardadas como CSV.</p>
+    <div class="actions"><button id="compare" type="button" disabled>Comparar archivos</button><button id="example" class="secondary" type="button">Probar con un ejemplo</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona los dos archivos CSV.</p>
+    <p id="summary" class="selection-summary">Todavía no hay resultados.</p>
+    <div id="results" aria-live="polite"></div>
+    <div id="download-area" class="download-panel" hidden><strong>Informe listo</strong><a id="download" class="button" download="diferencias-csv.csv">Descargar diferencias en CSV</a></div>
+  </section>
+  <aside class="notice warning"><strong>Qué compara.</strong> Detecta altas, bajas y cambios de texto. No interpreta fórmulas, formatos, colores ni el contenido interno de archivos XLSX; para esos casos exporta cada hoja como CSV.</aside>
+  <footer>Revisa el informe antes de actualizar el sistema de origen. La aplicación solo lee los archivos y crea un informe nuevo.</footer>
+</main>
+<script src="../../core.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
