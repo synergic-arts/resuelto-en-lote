@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Comprime imágenes hasta un peso objetivo como 100 KB o 200 KB directamente en el navegador, sin subirlas.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Comprimir imágenes a 100 KB o 200 KB · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .options-grid { margin-top: 1rem; }
+    .result-item { grid-template-columns: 92px minmax(0, 1fr) auto; }
+    .result-preview { width: 92px; height: 72px; object-fit: cover; border-radius: 10px; background: #10294f; }
+    .result-item p { margin: .25rem 0 0; color: var(--muted); }
+    @media (max-width: 650px) { .result-item { grid-template-columns: 72px minmax(0, 1fr); } .result-preview { width: 72px; height: 62px; } .result-item .button { grid-column: 1 / -1; } }
+  </style>
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>COMPRIMIR <span>IMÁGENES</span></h1><p class="promise">Haz que una foto pese menos de 100 KB, 200 KB o el límite que te pida un formulario.</p></div>
+  </section>
+  <aside class="notice"><strong>Tus fotos no se suben.</strong> El navegador decodifica, comprime y prepara las copias en tu dispositivo. No hay cuenta, servidor ni cambio en los originales.</aside>
+  <section class="panel">
+    <div class="controls">
+      <label>1. Selecciona las imágenes<input id="files" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
+      <label>2. Peso máximo por imagen (KB)<input id="target-kb" type="number" min="1" max="10000" value="100" inputmode="numeric"></label>
+      <label>3. Dimensión máxima (píxeles)<input id="max-dimension" type="number" min="320" max="12000" value="2400" inputmode="numeric"></label>
+      <label>4. Formato de salida<select id="format"><option value="image/jpeg">JPG para fotos</option><option value="image/webp">WebP para web</option></select></label>
+    </div>
+    <p class="muted">El compresor busca automáticamente una calidad que quede por debajo del límite y reduce las dimensiones solo si hace falta. Para fotografías usa JPG; para una web, WebP suele ser una buena opción.</p>
+    <div class="actions"><button id="compress" type="button" disabled>Comprimir imágenes</button><button id="example" class="secondary" type="button">Preparar ejemplo de 100 KB</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona una o varias imágenes.</p>
+    <p id="summary" class="selection-summary">Todavía no hay resultados.</p>
+    <ul id="results" class="result-list" aria-label="Resultados de compresión"></ul>
+  </section>
+  <aside class="notice warning"><strong>Un límite de peso siempre implica un compromiso.</strong> El resultado puede perder algo de detalle y la aplicación puede reducir píxeles si una foto no cabe con una calidad razonable. Comprueba la copia descargada antes de enviarla.</aside>
+  <footer>Compatible con JPG, PNG y WebP en navegadores modernos. La aplicación prepara cada imagen por separado y ofrece una descarga para cada copia.</footer>
+</main>
+<script src="../../core.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
