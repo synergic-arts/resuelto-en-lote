@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Encuentra archivos duplicados exactos por SHA-256 dentro del navegador, sin subirlos ni borrarlos.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Encontrar archivos duplicados � Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">&larr; Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicaci&oacute;n web privada</div><h1>ENCUENTRA <span>DUPLICADOS</span></h1><p class="promise">Localiza copias exactas antes de mover o borrar nada.</p></div>
+  </section>
+  <aside class="notice"><strong>Solo lectura.</strong> Los archivos se comparan dentro de tu navegador mediante tama&ntilde;o y SHA-256. No se env&iacute;an a Internet y la aplicaci&oacute;n no borra ni mueve ning&uacute;n archivo.</aside>
+  <section class="panel">
+    <div class="controls">
+      <label>1. Selecciona archivos o una carpeta<input id="files" type="file" multiple webkitdirectory></label>
+    </div>
+    <p class="muted">Se comprueba el contenido completo solo entre archivos con el mismo tama&ntilde;o. Los duplicados visuales guardados con distinta calidad o formato no se consideran iguales.</p>
+    <div class="actions"><button id="scan" type="button" disabled>Buscar duplicados exactos</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona una carpeta o varios archivos.</p>
+    <ul id="results" class="result-list" aria-label="Grupos de archivos duplicados"></ul>
+  </section>
+  <footer>M&aacute;ximo recomendado: 5.000 archivos y 1 GB por lote. Revisa las rutas y conserva una copia de seguridad antes de tomar decisiones.</footer>
+</main>
+<script src="../../core.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
