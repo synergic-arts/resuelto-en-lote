@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Convierte JSON a CSV en el navegador, aplana campos anidados y descarga los datos sin subirlos a ningún servidor.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Convertir JSON a CSV para Excel · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .json-input { width:100%; min-height:18rem; box-sizing:border-box; font:500 .95rem/1.5 ui-monospace,SFMono-Regular,Consolas,monospace; padding:1rem; border:1px solid #cbd5e1; border-radius:.65rem; background:#0f172a; color:#e2e8f0; }
+    .option-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+    .preview-table { width:100%; border-collapse:collapse; margin-top:1rem; font-size:.9rem; }
+    .preview-table th,.preview-table td { border:1px solid #dbe3ea; padding:.45rem; text-align:left; max-width:18rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    @media (max-width:700px) { .option-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>JSON A <span>CSV</span></h1><p class="promise">Pasa datos de una API o aplicación a una tabla que puedas abrir en Excel.</p></div>
+  </section>
+  <aside class="notice"><strong>Tus datos se quedan en tu dispositivo.</strong> El JSON se analiza y se convierte dentro del navegador. No hay cuentas, subidas, cookies ni conexiones a Internet.</aside>
+  <section class="panel">
+    <label>1. Pega el JSON o carga un archivo<input id="file" type="file" accept="application/json,.json"></label>
+    <textarea id="json-input" class="json-input" spellcheck="false" placeholder='[{"nombre":"Ana","edad":28}]'></textarea>
+    <div class="option-grid">
+      <label>Separador del CSV<select id="delimiter"><option value=",">Coma (,)</option><option value=";">Punto y coma (;)</option><option value="tab">Tabulador</option></select></label>
+      <label class="check"><input id="flatten" type="checkbox" checked> Aplanar objetos anidados con puntos</label>
+    </div>
+    <p class="muted">Admite una lista de objetos, un objeto individual o un objeto que contenga una lista. Las listas dentro de cada registro se conservan como JSON en una celda.</p>
+    <div class="actions"><button id="convert" type="button" disabled>Convertir a CSV</button><button id="example" class="secondary" type="button">Probar con un ejemplo</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <p id="status" class="status" role="status" aria-live="polite">Pega un JSON o selecciona un archivo.</p>
+    <p id="summary" class="selection-summary">Todavía no hay resultados.</p>
+    <div id="preview" aria-live="polite"></div>
+    <div id="download-area" class="download-panel" hidden><strong>CSV listo</strong><a id="download" class="button" download="datos_convertidos.csv">Descargar CSV</a><button id="copy" class="secondary" type="button">Copiar CSV</button></div>
+  </section>
+  <aside class="notice warning"><strong>Qué se conserva.</strong> Los nombres de campo y los valores se pasan a columnas. Los objetos anidados se pueden aplanar; las listas se guardan como JSON dentro de una celda. No se genera un libro XLSX con fórmulas o estilos.</aside>
+  <footer>Revisa las columnas y los valores antes de importarlos en Excel, Google Sheets o una base de datos.</footer>
+</main>
+<script src="../../core.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
