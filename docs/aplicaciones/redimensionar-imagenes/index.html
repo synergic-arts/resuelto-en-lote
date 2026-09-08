@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Redimensiona muchas imágenes en el navegador, sin subirlas a ningún servidor.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Redimensionar imágenes en lote · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>REDIMENSIONA <span>IMÁGENES</span></h1><p class="promise">Cambia el tamaño de muchas fotos de una vez, sin instalar nada.</p></div>
+  </section>
+  <aside class="notice"><strong>Procesamiento local.</strong> Las imágenes se leen y se transforman dentro de tu navegador. No se envían a Internet y los originales no se modifican.</aside>
+  <section class="panel">
+    <div class="controls">
+      <label>1. Selecciona las imágenes<input id="files" type="file" accept="image/*" multiple></label>
+      <label>2. Anchura máxima (píxeles)<input id="max-width" type="number" min="1" max="12000" value="1920"></label>
+      <label>3. Altura máxima (píxeles)<input id="max-height" type="number" min="1" max="12000" value="1080"></label>
+      <label>4. Formato de salida<select id="format"><option value="image/webp">WebP (recomendado)</option><option value="image/jpeg">JPG</option><option value="image/png">PNG</option></select></label>
+    </div>
+    <p class="muted">Se conserva la proporción y nunca se amplía una imagen más allá de su tamaño original. Las descargas reciben un nombre nuevo.</p>
+    <div class="actions"><button id="resize" type="button" disabled>Redimensionar imágenes</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona una o varias imágenes.</p>
+    <ul id="results" class="result-list" aria-label="Resultados del redimensionado"></ul>
+  </section>
+  <footer>Máximo recomendado: 100 imágenes y 200 MB por lote. Comprueba visualmente las copias nuevas antes de archivar los originales.</footer>
+</main>
+<script src="../../core.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
