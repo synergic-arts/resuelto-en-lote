@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Añade una marca de agua de texto a varias imágenes a la vez, con posición, tamaño y opacidad configurables, directamente en el navegador.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Añadir marca de agua a imágenes en lote · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .result-item { grid-template-columns: 92px minmax(0, 1fr) auto; }
+    .result-preview { width: 92px; height: 72px; object-fit: cover; border-radius: 10px; background: #10294f; }
+    .result-item p { margin: .25rem 0 0; color: var(--muted); }
+    .range-value { color: var(--cyan); font-weight: 800; }
+    @media (max-width: 650px) { .result-item { grid-template-columns: 72px minmax(0, 1fr); } .result-preview { width: 72px; height: 62px; } .result-item .button { grid-column: 1 / -1; } }
+  </style>
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>MARCA DE <span>AGUA</span></h1><p class="promise">Protege o identifica muchas imágenes de una vez con un texto visible y configurable.</p></div>
+  </section>
+  <aside class="notice"><strong>Tus imágenes se quedan en tu dispositivo.</strong> La marca se dibuja dentro de este navegador y se descarga como una copia nueva. No hay cuentas, subidas ni cambios en los originales.</aside>
+  <section class="panel">
+    <div class="controls">
+      <label>1. Selecciona las imágenes<input id="files" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
+      <label>2. Texto de la marca<input id="watermark-text" type="text" value="© Mi marca" maxlength="80" placeholder="© Mi marca"></label>
+      <label>3. Posición<select id="position"><option value="bottom-right">Abajo a la derecha</option><option value="bottom-left">Abajo a la izquierda</option><option value="top-right">Arriba a la derecha</option><option value="top-left">Arriba a la izquierda</option><option value="center">Centro</option><option value="bottom-center">Abajo centrada</option><option value="top-center">Arriba centrada</option><option value="center-left">Centro izquierda</option><option value="center-right">Centro derecha</option></select></label>
+      <label>4. Tamaño relativo<input id="size-percent" type="number" min="1" max="20" value="4" inputmode="decimal"><span class="muted">Porcentaje del lado más corto</span></label>
+      <label>5. Opacidad <span id="opacity-value" class="range-value">70 %</span><input id="opacity" type="range" min="10" max="100" value="70"></label>
+      <label>6. Color del texto<input id="color" type="color" value="#ffffff"></label>
+      <label>Formato final<select id="format"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select></label>
+    </div>
+    <p class="muted">La misma configuración se aplica a todas las imágenes. La marca incluye una sombra discreta para que se lea sobre fondos claros y oscuros.</p>
+    <div class="actions"><button id="apply" type="button" disabled>Añadir marca de agua</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona una o varias imágenes.</p>
+    <p id="summary" class="selection-summary">Todavía no hay resultados.</p>
+    <ul id="results" class="result-list" aria-label="Imágenes con marca de agua"></ul>
+  </section>
+  <aside class="notice warning"><strong>La marca de agua no impide una captura de pantalla.</strong> Sirve para identificar, contextualizar o disuadir usos no autorizados. Revisa el tamaño, el contraste y la posición antes de compartir la copia.</aside>
+  <footer>Compatible con JPG, PNG y WebP en navegadores modernos. La aplicación procesa hasta 30 imágenes por lote y ofrece una descarga independiente para cada una.</footer>
+</main>
+<script src="../../core.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
