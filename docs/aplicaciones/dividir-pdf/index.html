@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Divide un PDF en varios archivos por número de páginas o por puntos de corte, directamente en tu navegador.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Dividir un PDF en varios archivos online · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="pdf.css">
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>DIVIDE TU <span>PDF</span></h1><p class="promise">Separa un documento grande en partes manejables sin volver a subirlo a ningún sitio.</p></div>
+  </section>
+  <aside class="notice"><strong>El PDF se queda en tu dispositivo.</strong> La división se hace dentro del navegador. No necesitas crear una cuenta ni enviar el documento a un servidor.</aside>
+  <section class="panel">
+    <label>1. Selecciona un PDF<input id="files" type="file" accept="application/pdf,.pdf"></label>
+    <div class="split-options">
+      <label>2. ¿Cómo quieres dividirlo?
+        <select id="mode"><option value="chunk">Cada cierto número de páginas</option><option value="breaks">Con puntos de corte</option></select>
+      </label>
+      <label id="chunk-label">Páginas por archivo<input id="chunk-size" type="number" min="1" step="1" value="10"><span class="range-help">Por ejemplo, 10 crea partes de diez páginas.</span></label>
+      <label id="breaks-label">Última página de cada parte<input id="breaks" type="text" inputmode="numeric" placeholder="Ej.: 3, 7" disabled><span class="range-help">Con 3, 7 se crean las partes 1-3, 4-7 y 8 hasta el final.</span></label>
+    </div>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona un PDF.</p>
+    <p id="summary" class="selection-summary">Todavía no hay ningún PDF cargado.</p>
+    <ol id="plan" class="plan" aria-label="Plan de división"></ol>
+    <div class="actions"><button id="split" type="button" disabled>Crear partes del PDF</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <div id="result" class="notice" hidden><strong>Las partes están listas.</strong><div id="downloads" class="download-list"></div></div>
+  </section>
+  <aside class="notice warning"><strong>Revisa los archivos antes de compartirlos.</strong> La aplicación copia las páginas a documentos nuevos. En PDF con formularios, marcadores, firmas o elementos interactivos, comprueba que cada parte conserva lo que necesitas.</aside>
+  <footer>Compatible con navegadores modernos. Trabaja con un documento cada vez y recomienda no superar 100 MB para mantener una respuesta fluida.</footer>
+</main>
+<script src="../../vendor/pdf-lib-1.17.1.min.js"></script>
+<script src="../../core.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
