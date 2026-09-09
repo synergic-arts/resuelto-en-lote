@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Elimina páginas concretas de un PDF por número o rango, directamente en tu navegador y sin subir el documento.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Eliminar páginas de un PDF online · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="pdf.css">
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>QUITA PÁGINAS DE TU <span>PDF</span></h1><p class="promise">Elimina una portada, una página en blanco o un anexo sin recomponer el documento a mano.</p></div>
+  </section>
+  <aside class="notice"><strong>Tu PDF se queda en tu dispositivo.</strong> El documento se lee y se reconstruye dentro de este navegador. No hay cuentas, subidas ni cambios en el archivo original.</aside>
+  <section class="panel">
+    <div class="controls">
+      <label>1. Selecciona un PDF<input id="files" type="file" accept="application/pdf,.pdf"></label>
+      <label>2. Páginas que quieres quitar<input id="pages" type="text" placeholder="Ej.: 2, 4-5"><span class="range-help">Escribe números o rangos separados por comas. También puedes pulsar las tarjetas.</span></label>
+    </div>
+    <div class="actions"><button id="select-range" type="button" disabled>Marcar páginas</button><button id="delete" type="button" disabled>Eliminar páginas</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona un PDF.</p>
+    <p id="summary" class="selection-summary">Todavía no hay ningún PDF cargado.</p>
+    <div id="page-list" class="page-list" role="list" aria-label="Páginas del PDF"></div>
+    <div id="result" class="notice" hidden><strong>El archivo está listo.</strong><a id="download" class="button" href="#">Descargar PDF sin esas páginas</a></div>
+  </section>
+  <aside class="notice warning"><strong>Debes conservar al menos una página.</strong> La aplicación crea un PDF nuevo con las páginas restantes en el mismo orden. Si el documento contiene formularios o elementos interactivos, revisa la copia antes de enviarla.</aside>
+  <footer>Compatible con PDF en navegadores modernos. La aplicación trabaja con un documento cada vez y recomienda no superar 100 MB para mantener una respuesta fluida.</footer>
+</main>
+<script src="../../vendor/pdf-lib-1.17.1.min.js"></script>
+<script src="../../core.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+.page-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: .7rem; padding: 0; margin: 1rem 0 0; list-style: none; max-height: 460px; overflow: auto; }
+.page-card { display: grid; gap: .35rem; text-align: left; padding: .85rem .9rem; border: 1px solid rgba(125, 224, 255, .18); border-radius: 12px; background: #10294f; color: var(--text); cursor: pointer; }
+.page-card:hover, .page-card:focus-visible { border-color: var(--cyan); outline: none; }
+.page-card.selected-for-delete { border-color: #ff7d8d; background: rgba(142, 31, 57, .48); box-shadow: inset 3px 0 0 #ff7d8d; }
+.page-state { color: var(--muted); font-size: .86rem; }
+.selected-for-delete .page-state { color: #ffd3da; font-weight: 700; }
