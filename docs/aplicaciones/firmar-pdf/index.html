@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Añade una firma visual dibujada o escrita a un PDF directamente en tu navegador y descarga una copia nueva.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Añadir firma visual a un PDF online · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="pdf.css">
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>FIRMA TU <span>PDF</span></h1><p class="promise">Dibuja tu firma, escribe tu nombre y colócala donde la necesites.</p></div>
+  </section>
+  <aside class="notice"><strong>El documento se queda en tu dispositivo.</strong> La firma y el PDF se procesan dentro del navegador. No hay cuentas, subidas ni cambios en el original.</aside>
+  <section class="panel">
+    <label>1. Selecciona un PDF<input id="files" type="file" accept="application/pdf,.pdf"></label>
+    <p id="file-summary" class="selection-summary">Todavía no has seleccionado ningún documento.</p>
+    <div class="signature-board">
+      <strong>2. Crea tu firma</strong>
+      <canvas id="signature" width="720" height="240" aria-label="Lienzo para dibujar la firma"></canvas>
+      <div class="signature-tools"><input id="signature-text" type="text" placeholder="O escribe tu nombre"><button id="write-signature" type="button">Crear firma escrita</button><button id="clear-signature" class="secondary" type="button">Borrar firma</button></div>
+    </div>
+    <div class="layout-options">
+      <label>En qué páginas
+        <select id="target"><option value="last">Solo en la última</option><option value="all">En todas</option><option value="specific">En una página concreta</option></select>
+      </label>
+      <label id="page-number-label">Número de página<input id="page-number" type="number" min="1" step="1" value="1" disabled></label>
+      <label>Posición
+        <select id="position"><option value="bottom-left">Abajo a la izquierda</option><option value="bottom-center" selected>Abajo en el centro</option><option value="bottom-right">Abajo a la derecha</option><option value="top-left">Arriba a la izquierda</option><option value="top-center">Arriba en el centro</option><option value="top-right">Arriba a la derecha</option></select>
+      </label>
+      <label>Tamaño (% del ancho)<input id="scale" type="number" min="10" max="80" step="1" value="38"></label>
+      <label>Margen (puntos)<input id="margin" type="number" min="0" step="1" value="28"></label>
+    </div>
+    <div class="actions"><button id="sign" type="button" disabled>Crear PDF firmado</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona un PDF.</p>
+    <div id="result" class="notice" hidden><strong>La copia está lista.</strong><a id="download" class="button" href="#">Descargar PDF firmado</a></div>
+  </section>
+  <aside class="notice warning"><strong>Esto añade una firma visual.</strong> No sustituye una firma electrónica cualificada ni una firma digital basada en certificado. Revisa el documento y confirma qué tipo de firma acepta el destinatario.</aside>
+  <footer>Compatible con navegadores modernos. Trabaja con un documento cada vez y recomienda no superar 100 MB para mantener una respuesta fluida.</footer>
+</main>
+<script src="../../vendor/pdf-lib-1.17.1.min.js"></script>
+<script src="../../core.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

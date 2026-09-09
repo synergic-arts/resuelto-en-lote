@@ -1,0 +1,7 @@
+.signature-board { display: grid; gap: .55rem; }
+.signature-board canvas { display: block; width: 100%; max-width: 720px; height: auto; min-height: 150px; border: 2px dashed rgba(16, 41, 79, .36); border-radius: 12px; background: #fff; cursor: crosshair; touch-action: none; }
+.signature-tools { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+.signature-tools input { flex: 1 1 220px; }
+.layout-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .8rem; }
+.layout-options label { display: grid; gap: .35rem; }
+.layout-options input, .layout-options select { width: 100%; }
