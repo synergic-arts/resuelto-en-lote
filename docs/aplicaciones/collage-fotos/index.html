@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Crea un collage o una cuadrícula de muchas fotos con columnas, separación, fondo y nombres, directamente en tu navegador.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Crear collage de fotos en cuadrícula · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="collage.css">
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>COLLAGE DE <span>FOTOS</span></h1><p class="promise">Convierte una carpeta de imágenes en una cuadrícula clara para compartir, revisar o archivar.</p></div>
+  </section>
+  <aside class="notice"><strong>Tus imágenes se quedan en tu dispositivo.</strong> El collage se compone dentro de este navegador y se descarga como una imagen nueva. No hay cuentas, subidas ni cambios en los originales.</aside>
+  <section class="panel">
+    <div class="controls">
+      <label>1. Selecciona las imágenes<input id="files" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
+      <label>2. Columnas<select id="columns"><option value="2">2 columnas</option><option value="3" selected>3 columnas</option><option value="4">4 columnas</option><option value="5">5 columnas</option><option value="6">6 columnas</option></select></label>
+      <label>Anchura de cada celda<input id="cell-width" type="number" min="120" max="800" value="320" inputmode="numeric"><span class="muted">Píxeles de salida</span></label>
+      <label>Altura de cada celda<input id="cell-height" type="number" min="120" max="800" value="240" inputmode="numeric"><span class="muted">Píxeles de salida</span></label>
+      <label>Separación<input id="gap" type="number" min="0" max="80" value="16" inputmode="numeric"><span class="muted">Espacio entre fotos</span></label>
+      <label>Margen exterior<input id="padding" type="number" min="0" max="100" value="24" inputmode="numeric"><span class="muted">Espacio alrededor</span></label>
+      <label>Fondo<input id="background" type="color" value="#ffffff"></label>
+      <label>Cómo encajar las fotos<select id="fit"><option value="cover">Rellenar celda · recorta bordes</option><option value="contain">Mostrar completa · añade fondo</option></select></label>
+      <label>Título opcional<input id="title" type="text" maxlength="100" placeholder="Ej.: Selección de verano"></label>
+      <label class="check-label"><input id="show-names" type="checkbox"> Mostrar nombres de archivo</label>
+      <label>Formato final<select id="format"><option value="image/png">PNG</option><option value="image/jpeg">JPG</option><option value="image/webp">WebP</option></select></label>
+    </div>
+    <p class="muted">Elige las fotos en el orden que quieras verlas. Con «Rellenar celda» la cuadrícula queda uniforme; con «Mostrar completa» no se corta la imagen y se usa el color de fondo.</p>
+    <div class="actions"><button id="apply" type="button" disabled>Crear collage</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona varias imágenes.</p>
+    <p id="summary" class="selection-summary">Todavía no hay resultados.</p>
+    <div class="preview-panel"><div id="preview-empty" class="preview-empty">Aquí aparecerá tu cuadrícula.</div><img id="preview" hidden alt="Vista previa del collage creado"><div class="actions"><a id="download" class="button" hidden>Descargar collage</a></div></div>
+  </section>
+  <aside class="notice warning"><strong>Una cuadrícula sirve para revisar o compartir un conjunto de fotos.</strong> Para imprimirla, elige un tamaño de celda y una separación que mantengan legibles los detalles y los nombres.</aside>
+  <footer>Compatible con JPG, PNG y WebP en navegadores modernos. La aplicación procesa hasta 40 imágenes por collage y genera una única imagen descargable.</footer>
+</main>
+<script src="../../core.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
