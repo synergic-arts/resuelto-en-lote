@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Reordena las páginas de un PDF, invierte su secuencia o escribe un orden personalizado directamente en tu navegador.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Reordenar páginas de un PDF online · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="pdf.css">
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>ORDENA TU <span>PDF</span></h1><p class="promise">Pon las páginas en su sitio, invierte el documento o corrige una secuencia en segundos.</p></div>
+  </section>
+  <aside class="notice"><strong>Tu PDF se queda en tu dispositivo.</strong> El archivo se abre y se reconstruye dentro de este navegador. No hay cuentas, subidas ni cambios en el documento original.</aside>
+  <section class="panel">
+    <div class="controls">
+      <label>1. Selecciona un PDF<input id="files" type="file" accept="application/pdf,.pdf"></label>
+      <label>2. Revisa o escribe el orden<input id="order" type="text" inputmode="numeric" placeholder="Ej.: 1, 3, 2, 4"><span class="range-help">Incluye todas las páginas una sola vez y sepáralas con comas.</span></label>
+    </div>
+    <div class="actions"><button id="apply-order" type="button" disabled>Aplicar orden escrito</button><button id="invert" type="button" disabled>Invertir orden</button><button id="reset" class="secondary" type="button" disabled>Restablecer</button></div>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona un PDF.</p>
+    <p id="summary" class="selection-summary">Todavía no hay ningún PDF cargado.</p>
+    <div id="page-list" class="page-list" role="list" aria-label="Orden actual de las páginas"></div>
+    <div class="actions"><button id="reorder" type="button" disabled>Crear PDF reordenado</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <div id="result" class="notice" hidden><strong>La copia está lista.</strong><a id="download" class="button" href="#">Descargar PDF reordenado</a></div>
+  </section>
+  <aside class="notice warning"><strong>Comprueba la copia antes de compartirla.</strong> La aplicación copia las páginas en el orden indicado. En PDF con formularios, marcadores o elementos interactivos, revisa que el resultado conserve lo que necesitas.</aside>
+  <footer>Compatible con navegadores modernos. Trabaja con un documento cada vez y recomienda no superar 100 MB para mantener una respuesta fluida.</footer>
+</main>
+<script src="../../vendor/pdf-lib-1.17.1.min.js"></script>
+<script src="../../core.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
