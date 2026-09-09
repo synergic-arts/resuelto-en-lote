@@ -1,0 +1,6 @@
+.result-item { grid-template-columns: 92px minmax(0, 1fr) auto; }
+.result-preview { width: 92px; height: 72px; object-fit: cover; border-radius: 10px; background: #10294f; }
+.custom-controls { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-top: -.25rem; }
+.custom-controls[hidden] { display: none; }
+.ratio-note { margin: .15rem 0 0; color: var(--muted); font-size: .9rem; }
+@media (max-width: 650px) { .result-item { grid-template-columns: 72px minmax(0, 1fr); } .result-preview { width: 72px; height: 62px; } .result-item .button { grid-column: 1 / -1; } .custom-controls { grid-template-columns: 1fr; } }

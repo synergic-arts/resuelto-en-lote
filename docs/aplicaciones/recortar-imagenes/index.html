@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Recorta muchas imágenes con la misma proporción para Instagram, Stories, Reels, YouTube o catálogos, directamente en tu navegador.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Recortar imágenes en lote · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="crop.css">
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>RECORTA EN <span>LOTE</span></h1><p class="promise">Adapta muchas imágenes al mismo formato para redes sociales, vídeos o catálogos.</p></div>
+  </section>
+  <aside class="notice"><strong>Tus imágenes se quedan en tu dispositivo.</strong> El recorte se calcula y se exporta dentro de este navegador. No hay cuentas, subidas ni cambios en los originales.</aside>
+  <section class="panel">
+    <div class="controls">
+      <label>1. Selecciona las imágenes<input id="files" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
+      <label>2. Elige el formato<select id="preset"><option value="square">Cuadrado 1:1 · publicaciones</option><option value="portrait">Retrato 4:5 · feed</option><option value="story">Vertical 9:16 · Stories y Reels</option><option value="youtube">Panorámica 16:9 · miniaturas</option><option value="classic">Clásico 4:3</option><option value="vertical">Vertical 3:4 · catálogos</option><option value="custom">Personalizado</option></select></label>
+      <div id="custom-controls" class="custom-controls" hidden>
+        <label>Ancho de referencia<input id="custom-width" type="number" min="1" max="10000" value="1" inputmode="numeric"></label>
+        <label>Alto de referencia<input id="custom-height" type="number" min="1" max="10000" value="1" inputmode="numeric"></label>
+      </div>
+      <label>3. Punto de referencia<select id="anchor"><option value="center">Centro</option><option value="top">Parte superior</option><option value="bottom">Parte inferior</option><option value="left">Lado izquierdo</option><option value="right">Lado derecho</option></select><span class="ratio-note">Conserva esa zona cuando el formato obliga a recortar.</span></label>
+      <label>Formato de salida<select id="format"><option value="same">Mantener el formato original</option><option value="image/jpeg">JPG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select></label>
+    </div>
+    <p class="muted">La misma proporción y el mismo punto de referencia se aplican a todo el lote. El resultado conserva la resolución disponible del recorte y se guarda como una copia nueva.</p>
+    <div class="actions"><button id="apply" type="button" disabled>Recortar imágenes</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona una o varias imágenes.</p>
+    <p id="summary" class="selection-summary">Todavía no hay resultados.</p>
+    <ul id="results" class="result-list" aria-label="Imágenes recortadas"></ul>
+  </section>
+  <aside class="notice warning"><strong>El recorte por lotes usa el mismo encuadre para todas las imágenes.</strong> Si cada foto tiene el sujeto en un lugar diferente, revisa las miniaturas antes de compartirlas y usa el punto de referencia más adecuado.</aside>
+  <footer>Compatible con JPG, PNG y WebP en navegadores modernos. La aplicación procesa hasta 30 imágenes por lote y ofrece una descarga independiente para cada una.</footer>
+</main>
+<script src="../../core.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
