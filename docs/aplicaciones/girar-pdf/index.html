@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Gira todas las páginas de un PDF, un rango o páginas concretas directamente en el navegador, sin subir el documento.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Girar páginas de un PDF online · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="pdf.css">
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>GIRA TU <span>PDF</span></h1><p class="promise">Corrige páginas giradas, escaneos laterales o documentos al revés en unos clics.</p></div>
+  </section>
+  <aside class="notice"><strong>Tu PDF se queda en tu dispositivo.</strong> El documento se abre y se modifica dentro de este navegador. No hay cuentas, subidas ni cambios en el archivo original.</aside>
+  <section class="panel">
+    <div class="controls">
+      <label>1. Selecciona un PDF<input id="files" type="file" accept="application/pdf,.pdf"></label>
+      <label>2. Grados de giro<select id="angle"><option value="90">90° a la derecha</option><option value="180">180°</option><option value="270">270° a la derecha</option></select></label>
+      <label>3. Páginas<input id="pages" type="text" value="todas" placeholder="todas o 2-4, 7"><span class="range-help">Ejemplos: «todas», «2-5» o «1, 4, 8-10».</span></label>
+    </div>
+    <div class="actions"><button id="apply" type="button" disabled>Aplicar giro</button><button id="reset" class="secondary" type="button" disabled>Restablecer</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona un PDF.</p>
+    <p id="summary" class="selection-summary">Todavía no hay ningún PDF cargado.</p>
+    <ul id="page-list" class="page-list" aria-label="Páginas del PDF"></ul>
+    <div class="actions"><button id="export" type="button" disabled>Guardar PDF girado</button></div>
+    <div id="result" class="notice" hidden><strong>El archivo está listo.</strong><a id="download" class="button" href="#">Descargar PDF girado</a></div>
+  </section>
+  <aside class="notice warning"><strong>Girar una página cambia su orientación, no el contenido.</strong> La aplicación guarda el giro en el PDF para que se conserve al abrirlo en otro visor. Los archivos protegidos con contraseña pueden requerir desbloqueo previo.</aside>
+  <footer>Compatible con PDF en navegadores modernos. La aplicación trabaja con un documento cada vez y recomienda no superar 100 MB para mantener una respuesta fluida.</footer>
+</main>
+<script src="../../vendor/pdf-lib-1.17.1.min.js"></script>
+<script src="../../core.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
