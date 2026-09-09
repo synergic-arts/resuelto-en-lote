@@ -1,0 +1,6 @@
+.watermark-preview { display: grid; place-items: center; min-height: 100px; margin: .8rem 0 1rem; overflow: hidden; border: 1px solid rgba(125, 224, 255, .2); border-radius: 12px; background: linear-gradient(135deg, #f7fbff, #dfeaf7); color: #10294f; font-size: clamp(1.25rem, 5vw, 2.5rem); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.watermark-preview.diagonal { transform: rotate(-18deg); }
+.watermark-preview.diagonal { font-size: clamp(1.15rem, 4vw, 2.1rem); }
+.layout-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .8rem; }
+.layout-options label { display: grid; gap: .35rem; }
+.layout-options input, .layout-options select { width: 100%; }
