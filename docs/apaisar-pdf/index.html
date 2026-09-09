@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Coloca 2, 4, 6 o 9 páginas de un PDF en cada hoja y descarga una copia lista para imprimir, directamente desde el navegador.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Varias páginas por hoja en un PDF · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="pdf.css">
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>VARIAS PÁGINAS <span>POR HOJA</span></h1><p class="promise">Aprovecha mejor el papel juntando 2, 4, 6 o 9 páginas en cada hoja.</p></div>
+  </section>
+  <aside class="notice"><strong>Tu PDF se queda en tu dispositivo.</strong> La maquetación se hace dentro del navegador y se descarga un documento nuevo. No hay cuentas, subidas ni cambios en el original.</aside>
+  <section class="panel">
+    <label>1. Selecciona un PDF<input id="files" type="file" accept="application/pdf,.pdf"></label>
+    <p id="file-summary" class="selection-summary">Todavía no has seleccionado ningún documento.</p>
+    <div class="layout-options">
+      <label>Páginas por hoja<select id="per-sheet"><option value="2">2 páginas</option><option value="4" selected>4 páginas</option><option value="6">6 páginas</option><option value="9">9 páginas</option></select></label>
+      <label>Tamaño de papel<select id="paper"><option value="a4-portrait" selected>A4 vertical</option><option value="a4-landscape">A4 horizontal</option><option value="letter-portrait">Carta vertical</option><option value="letter-landscape">Carta horizontal</option></select></label>
+      <label>Margen (puntos)<input id="margin" type="number" min="0" step="1" value="24"></label>
+      <label>Espacio entre páginas (puntos)<input id="gap" type="number" min="0" step="1" value="12"></label>
+    </div>
+    <label class="check-row"><input id="border" type="checkbox" checked> Dibujar un borde alrededor de cada página</label>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona un PDF.</p>
+    <p id="summary" class="selection-summary">Todavía no hay ningún PDF cargado.</p>
+    <ol id="plan" class="plan" aria-label="Plan de maquetación"></ol>
+    <div class="actions"><button id="apply" type="button" disabled>Crear PDF para imprimir</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <div id="result" class="notice" hidden><strong>La copia está lista.</strong><a id="download" class="button" href="#">Descargar PDF</a></div>
+  </section>
+  <aside class="notice warning"><strong>El tamaño del texto se reduce.</strong> Cuantas más páginas pongas en una hoja, más pequeñas aparecerán. Haz una prueba con una página y revisa los márgenes de tu impresora antes de imprimir todo.</aside>
+  <footer>Compatible con navegadores modernos. Conserva el contenido vectorial cuando el PDF lo permite y recomienda no superar 100 MB para mantener una respuesta fluida.</footer>
+</main>
+<script src="../../vendor/pdf-lib-1.17.1.min.js"></script>
+<script src="../../core.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

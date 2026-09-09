@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Convierte páginas de un PDF en imágenes PNG o JPG online, selecciona páginas y descarga cada imagen sin subir el documento.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>PDF a imágenes PNG o JPG · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="pdf.css">
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>PDF A <span>IMÁGENES</span></h1><p class="promise">Convierte las páginas que necesitas en PNG o JPG y descárgalas en unos clics.</p></div>
+  </section>
+  <aside class="notice"><strong>Tu documento se queda en tu dispositivo.</strong> El PDF se abre y se convierte dentro del navegador. No necesitas registrarte ni subir archivos a un servidor.</aside>
+  <section class="panel">
+    <label>1. Selecciona un PDF<input id="files" type="file" accept="application/pdf,.pdf"></label>
+    <p id="file-summary" class="selection-summary">Todavía no has seleccionado ningún documento.</p>
+    <div class="layout-options">
+      <label>Páginas que quieres convertir<input id="pages" type="text" placeholder="Todas · o 1-3, 7, 10"></label>
+      <label>Formato<select id="format"><option value="png" selected>PNG · más nítido</option><option value="jpg">JPG · más ligero</option></select></label>
+      <label>Escala<select id="scale"><option value="0.75">0,75×</option><option value="1">1×</option><option value="1.5" selected>1,5×</option><option value="2">2×</option><option value="3">3×</option></select></label>
+      <label id="quality-wrap">Calidad JPG<select id="quality"><option value="0.65">65 %</option><option value="0.8" selected>80 %</option><option value="0.9">90 %</option><option value="1">100 %</option></select></label>
+    </div>
+    <p class="help">Escribe números separados por comas y rangos como <strong>1-3, 7</strong>. Si lo dejas vacío, se convierten todas las páginas.</p>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona un PDF.</p>
+    <p id="summary" class="selection-summary">Todavía no hay ningún PDF cargado.</p>
+    <div class="actions"><button id="convert" type="button" disabled>Convertir páginas</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <div id="result" class="notice" hidden><strong>Imágenes listas.</strong> Descarga solo las páginas que quieras conservar.<ol id="downloads" class="downloads"></ol></div>
+  </section>
+  <aside class="notice warning"><strong>PNG y JPG sirven para cosas distintas.</strong> PNG conserva mejor el texto y los gráficos, pero ocupa más. JPG pesa menos y resulta práctico para enviar una página como imagen, aunque comprime el detalle.</aside>
+  <footer>Compatible con navegadores modernos. El PDF no se modifica: se generan imágenes nuevas. Para mantener una respuesta fluida, se recomienda no superar 100 MB ni usar una escala excesiva en páginas muy grandes.</footer>
+</main>
+<script src="../../vendor/pdfjs-3.11.174.min.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

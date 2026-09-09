@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Extrae el texto de uno o varios PDF y descarga un TXT por documento o un archivo combinado, directamente en el navegador.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Extraer texto de PDF · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="pdf.css">
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>EXTRAER TEXTO <span>DE PDF</span></h1><p class="promise">Saca el texto de uno o varios PDF y llévatelo en archivos TXT listos para reutilizar.</p></div>
+  </section>
+  <aside class="notice"><strong>Tus documentos se quedan en tu dispositivo.</strong> Los PDF se leen dentro del navegador y puedes descargar un TXT por documento o todo el lote en un único archivo.</aside>
+  <section class="panel">
+    <label>1. Selecciona uno o varios PDF<input id="files" type="file" accept="application/pdf,.pdf" multiple></label>
+    <p id="file-summary" class="selection-summary">Todavía no has seleccionado ningún documento.</p>
+    <p id="summary" class="selection-summary">Todavía no hay ningún PDF cargado.</p>
+    <p class="help">Se pueden procesar hasta 20 PDF y 250 MB por lote. El texto se extrae en el orden que proporciona el documento.</p>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona uno o varios PDF.</p>
+    <div class="actions"><button id="extract" type="button" disabled>Extraer texto</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <div id="result" class="notice" hidden><strong>Texto listo.</strong> Descarga cada documento por separado o el archivo combinado.<ol id="downloads" class="downloads"></ol></div>
+  </section>
+  <aside class="notice warning"><strong>Esto no es OCR.</strong> Funciona con PDF que ya contienen texto seleccionable. Si el documento es un escaneado formado por imágenes, necesitarás una aplicación de OCR para reconocer sus palabras.</aside>
+  <footer>Compatible con navegadores modernos. El PDF original no se modifica y no se envía a ningún servidor. Los TXT conservan el texto extraído, pero diseños complejos, columnas y tablas pueden necesitar una revisión.</footer>
+</main>
+<script src="../../vendor/pdfjs-3.11.174.min.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
