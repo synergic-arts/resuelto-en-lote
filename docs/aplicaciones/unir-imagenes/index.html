@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Une varias imágenes en una sola, en vertical u horizontal, con separación y fondo configurables, directamente en tu navegador.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Unir imágenes en una sola · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .options-grid { margin-top: 1rem; }
+    .file-row { grid-template-columns: minmax(0, 1fr) auto; }
+    .file-actions { display: flex; gap: 6px; }
+    .small { min-height: 36px; padding: 5px 10px; font-size: 15px; }
+    .result-preview { display: block; width: 100%; max-height: 620px; object-fit: contain; margin: 18px 0; border: 1px solid var(--line); border-radius: 14px; background: #071a35; }
+    @media (max-width: 650px) { .file-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div><div class="kicker">Aplicación web privada</div><h1>UNIR <span>IMÁGENES</span></h1><p class="promise">Junta capturas, recibos o fotos en una sola imagen lista para compartir.</p></div>
+  </section>
+  <aside class="notice"><strong>Las imágenes se quedan en tu dispositivo.</strong> Se abren, se colocan y se exportan dentro de este navegador. No hay cuentas, subidas ni cambios en los archivos originales.</aside>
+  <section class="panel">
+    <label>1. Selecciona dos o más imágenes<input id="files" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
+    <ul id="file-list" class="file-list" aria-label="Orden de las imágenes"></ul>
+    <div class="options-grid">
+      <label>Disposición<select id="orientation"><option value="vertical">Una encima de otra</option><option value="horizontal">Una al lado de otra</option></select></label>
+      <label>Separación (píxeles)<input id="gap" type="number" min="0" max="500" value="24" inputmode="numeric"></label>
+      <label>Lado máximo de cada imagen<input id="max-side" type="number" min="320" max="12000" value="1800" inputmode="numeric"></label>
+      <label>Color de fondo<input id="background" type="color" value="#ffffff"></label>
+      <label>Formato final<select id="format"><option value="image/png">PNG</option><option value="image/jpeg">JPG</option></select></label>
+    </div>
+    <p class="muted">Usa la disposición vertical para unir capturas de una conversación o un documento. Usa la horizontal para comparaciones de antes y después. Puedes subir o bajar cada imagen antes de crear la composición.</p>
+    <div class="actions"><button id="join" type="button" disabled>Unir imágenes</button><button id="clear" class="secondary" type="button">Limpiar</button></div>
+    <p id="status" class="status" role="status" aria-live="polite">Selecciona al menos 2 imágenes.</p>
+    <p id="summary" class="selection-summary">Todavía no hay resultados.</p>
+    <div id="result-area" class="download-panel" hidden><strong>Imagen final</strong><img id="preview" class="result-preview" alt=""><a id="download" class="button" download="imagenes-unidas.png">Descargar imagen</a></div>
+  </section>
+  <aside class="notice warning"><strong>La unión crea una imagen nueva.</strong> La aplicación no cose panoramas ni corrige perspectivas: coloca las imágenes en el orden elegido, con el tamaño y la separación indicados. Si el lienzo resultante es muy alto o ancho, reduce el lado máximo.</aside>
+  <footer>Compatible con JPG, PNG y WebP en navegadores modernos. Revisa la composición antes de compartirla y conserva los originales si los necesitas.</footer>
+</main>
+<script src="../../core.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
