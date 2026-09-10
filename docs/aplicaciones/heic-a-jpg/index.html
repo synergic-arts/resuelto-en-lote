@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Convierte fotos HEIC y HEIF del iPhone a JPG por lotes dentro de tu navegador, sin subirlas a ningún servidor.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; worker-src blob:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Convertir HEIC a JPG por lotes · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <section class="hero heic-hero">
+    <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
+    <div>
+      <div class="kicker">Fotos de iPhone, listas para usar</div>
+      <h1>HEIC A <span>JPG</span></h1>
+      <p class="promise">Convierte un álbum completo sin instalar nada y sin entregar tus fotos a un servidor.</p>
+    </div>
+  </section>
+
+  <aside class="notice privacy-proof">
+    <strong>Privacidad comprobable.</strong> La aplicación tiene bloqueadas las conexiones salientes. Después de abrirla puedes desconectar Internet y seguir convirtiendo.
+  </aside>
+
+  <section class="panel converter-panel">
+    <div id="drop-zone" class="drop-zone" tabindex="0" role="button" aria-controls="files">
+      <div class="format-flow" aria-hidden="true"><span>HEIC</span><b>→</b><span>JPG</span></div>
+      <strong>Suelta aquí las fotos de tu iPhone</strong>
+      <small>o pulsa para seleccionar hasta 50 archivos HEIC o HEIF</small>
+      <input id="files" type="file" accept=".heic,.heif,image/heic,image/heif" multiple hidden>
+    </div>
+
+    <div class="controls conversion-controls">
+      <label>Calidad JPG: <output id="quality-value" for="quality">92 %</output>
+        <input id="quality" type="range" min="60" max="100" value="92" step="1">
+      </label>
+      <label>Destino
+        <select id="destination">
+          <option value="folder">Carpeta elegida (recomendado)</option>
+          <option value="downloads">Botones de descarga</option>
+        </select>
+      </label>
+    </div>
+
+    <div id="batch-summary" class="batch-summary" hidden></div>
+    <p class="muted limits">Máximo por lote: 50 archivos, 40 MB por foto y 300 MB en total. Los originales permanecen intactos.</p>
+    <div class="actions">
+      <button id="convert" type="button" disabled>Elegir destino y convertir</button>
+      <button id="clear" class="secondary" type="button">Limpiar</button>
+    </div>
+    <p id="compatibility" class="warning" hidden></p>
+    <p id="status" class="status" role="status" aria-live="polite">Añade una o varias fotos HEIC.</p>
+    <ul id="results" class="result-list preview-grid" aria-label="Resultados de la conversión"></ul>
+  </section>
+
+  <section class="explanation-grid" aria-label="Qué hace la aplicación">
+    <article><b>1</b><h2>Añade el lote</h2><p>Comprueba el contenido real del archivo, no solo su extensión.</p></article>
+    <article><b>2</b><h2>Convierte aquí</h2><p>El decodificador trabaja en la memoria de esta pestaña.</p></article>
+    <article><b>3</b><h2>Guarda los JPG</h2><p>Los nombres no sobrescriben archivos que ya existan.</p></article>
+  </section>
+
+  <footer>
+    JPG utiliza compresión con pérdida. La conversión elimina metadatos como fecha, ubicación y datos EXIF; si un HEIC contiene varias imágenes, esta versión exporta la imagen principal. Comprueba el resultado antes de archivar los originales. Motor HEIC bajo licencia LGPL-3.0.
+  </footer>
+</main>
+<script src="../../core.js"></script>
+<script src="logic.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

@@ -16,6 +16,7 @@ Puedes abrir las aplicaciones web directamente o descargar la versión de Window
 | [Comparar carpetas](tools/comparar-carpetas/) | [Abrir en la web](https://synergic-arts.github.io/resuelto-en-lote/aplicaciones/comparar-carpetas/) | Dos carpetas | Informe descargable | Solo lectura; SHA-256 opcional |
 | [Archivos que más ocupan](tools/archivos-grandes/) | [Abrir en la web](https://synergic-arts.github.io/resuelto-en-lote/aplicaciones/archivos-grandes/) | Una carpeta | Ranking y CSV | Solo lee nombre y tamaño |
 | Imágenes a WebP | [Abrir en la web](https://synergic-arts.github.io/resuelto-en-lote/aplicaciones/imagenes-webp/) | Una o varias imágenes | Copias `.webp` | Proceso local; originales intactos |
+| HEIC a JPG por lotes | [Abrir en la web](https://synergic-arts.github.io/resuelto-en-lote/aplicaciones/heic-a-jpg/) | Fotos `.heic` o `.heif` | Copias `.jpg` | Proceso local; no sube fotografías |
 | [Renombrar por fecha](tools/renombrar-por-fecha/) | Aplicación Windows | Archivos de una carpeta | Vista previa + CSV | No cambia nada sin confirmación |
 | [Vídeos a MP4](tools/videos-a-mp4/) | Aplicación Windows | Carpeta con vídeos | MP4 H.264/AAC + CSV | Originales intactos; requiere FFmpeg |
 | [Organizar fotos](tools/organizar-fotos/) | Aplicación Windows | Fotos en subcarpetas | Copias por año/mes + CSV | Vista previa; copia, no mueve |
@@ -30,5 +31,7 @@ Descarga las aplicaciones portables desde [la última versión para Windows](htt
 Las aplicaciones de consulta no modifican los originales. Las que pueden cambiar nombres o crear copias muestran primero una vista previa o escriben en otra carpeta. Aun así, conserva una copia de seguridad cuando trabajes con archivos importantes.
 
 La aplicación web Unir PDF incluye pdf-lib 1.17.1 bajo licencia MIT. No admite PDF cifrados; combinar documentos invalida firmas digitales y puede no conservar formularios, adjuntos o marcadores.
+
+El conversor HEIC a JPG incluye heic-to 1.5.2 bajo licencia LGPL-3.0. Genera copias JPG de la imagen principal sin los metadatos del original; conserva las fotografías HEIC intactas.
 
 Canal: [Resuelto en Lote](https://www.youtube.com/@ResueltoEnLote) · Promesa: **Aplicaciones reales que te ahorran horas**.
