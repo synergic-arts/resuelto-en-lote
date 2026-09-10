@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Extraia o texto selecionável de vários PDFs e baixe arquivos TXT separados ou um resultado combinado. Tudo funciona no navegador.">
+  <meta name="pdf-worker-src" content="../../../vendor/pdfjs-3.11.174.worker.min.js">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Extrair texto de PDF · Resuelto en Lote</title>
+  <link rel="canonical" href="https://synergic-arts.github.io/resuelto-en-lote/pt-br/aplicacoes/extrair-texto-de-pdf/">
+  <link rel="alternate" hreflang="es" href="https://synergic-arts.github.io/resuelto-en-lote/aplicaciones/extraer-texto-pdf/">
+  <link rel="alternate" hreflang="en" href="https://synergic-arts.github.io/resuelto-en-lote/en/apps/extract-text-from-pdf/">
+  <link rel="alternate" hreflang="pt-BR" href="https://synergic-arts.github.io/resuelto-en-lote/pt-br/aplicacoes/extrair-texto-de-pdf/">
+  <link rel="alternate" hreflang="x-default" href="https://synergic-arts.github.io/resuelto-en-lote/aplicaciones/extraer-texto-pdf/">
+  <link rel="stylesheet" href="../../../styles.css">
+  <link rel="stylesheet" href="../../../aplicaciones/extraer-texto-pdf/pdf.css">
+</head>
+<body>
+<main class="compact">
+  <nav class="breadcrumbs"><a href="../../">← Todos os aplicativos</a> · <a href="../../../aplicaciones/extraer-texto-pdf/" lang="es">ES</a> · <a href="../../../en/apps/extract-text-from-pdf/" lang="en">EN</a> · <strong>PT-BR</strong></nav>
+  <section class="hero"><img src="../../../logo.png" alt="Logotipo do Resuelto en Lote" width="132" height="132"><div><div class="kicker">Aplicativo web privado</div><h1>EXTRAIR TEXTO <span>DE PDF</span></h1><p class="promise">Extraia o texto de um ou mais PDFs e baixe arquivos TXT prontos para reutilizar.</p></div></section>
+  <aside class="notice"><strong>Seus documentos ficam no seu dispositivo.</strong> Os PDFs são lidos no navegador. Você pode baixar um TXT por documento ou combinar todo o lote.</aside>
+  <section class="panel">
+    <label for="files">1. Selecione um ou mais arquivos PDF</label>
+    <div class="file-picker"><input id="files" class="file-input" type="file" accept="application/pdf,.pdf" multiple><label class="button secondary file-trigger" for="files">Escolher PDFs</label></div>
+    <p id="file-summary" class="selection-summary">Você ainda não selecionou nenhum documento.</p>
+    <p id="summary" class="selection-summary">Nenhum PDF foi carregado ainda.</p>
+    <p class="help">É possível processar até 20 arquivos PDF e 250 MB por lote. O texto é extraído na ordem fornecida pelo documento.</p>
+    <p id="status" class="status" role="status" aria-live="polite">Selecione um ou mais arquivos PDF.</p>
+    <div class="actions"><button id="extract" type="button" disabled>Extrair texto</button><button id="clear" class="secondary" type="button">Limpar</button></div>
+    <div id="result" class="notice" hidden><strong>O texto está pronto.</strong> Baixe cada documento separadamente ou obtenha um único arquivo combinado.<ol id="downloads" class="downloads"></ol></div>
+  </section>
+  <aside class="notice warning"><strong>Isto não é OCR.</strong> O aplicativo funciona com PDFs que já contêm texto selecionável. Páginas digitalizadas como imagens exigem OCR.</aside>
+  <footer>Compatível com navegadores modernos. Os PDFs originais não são modificados nem enviados a um servidor. Layouts complexos, colunas e tabelas podem exigir revisão do TXT.</footer>
+</main>
+<script src="../../../vendor/pdfjs-3.11.174.min.js"></script>
+<script src="../../../aplicaciones/extraer-texto-pdf/logic.js"></script>
+<script src="../../../aplicaciones/extraer-texto-pdf/i18n.js"></script>
+<script src="../../../aplicaciones/extraer-texto-pdf/app.js"></script>
+</body>
+</html>

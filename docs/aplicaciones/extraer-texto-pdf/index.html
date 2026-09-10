@@ -4,21 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Extrae el texto de uno o varios PDF y descarga un TXT por documento o un archivo combinado, directamente en el navegador.">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <meta name="pdf-worker-src" content="../../vendor/pdfjs-3.11.174.worker.min.js">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>Extraer texto de PDF · Resuelto en Lote</title>
+  <link rel="canonical" href="https://synergic-arts.github.io/resuelto-en-lote/aplicaciones/extraer-texto-pdf/">
+  <link rel="alternate" hreflang="es" href="https://synergic-arts.github.io/resuelto-en-lote/aplicaciones/extraer-texto-pdf/">
+  <link rel="alternate" hreflang="en" href="https://synergic-arts.github.io/resuelto-en-lote/en/apps/extract-text-from-pdf/">
+  <link rel="alternate" hreflang="pt-BR" href="https://synergic-arts.github.io/resuelto-en-lote/pt-br/aplicacoes/extrair-texto-de-pdf/">
+  <link rel="alternate" hreflang="x-default" href="https://synergic-arts.github.io/resuelto-en-lote/aplicaciones/extraer-texto-pdf/">
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="pdf.css">
 </head>
 <body>
 <main class="compact">
-  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a> · <strong>ES</strong> · <a href="../../en/apps/extract-text-from-pdf/" lang="en">EN</a> · <a href="../../pt-br/aplicacoes/extrair-texto-de-pdf/" lang="pt-BR">PT-BR</a></nav>
   <section class="hero">
     <img src="../../logo.png" alt="Logotipo de Resuelto en Lote" width="132" height="132">
     <div><div class="kicker">Aplicación web privada</div><h1>EXTRAER TEXTO <span>DE PDF</span></h1><p class="promise">Saca el texto de uno o varios PDF y llévatelo en archivos TXT listos para reutilizar.</p></div>
   </section>
   <aside class="notice"><strong>Tus documentos se quedan en tu dispositivo.</strong> Los PDF se leen dentro del navegador y puedes descargar un TXT por documento o todo el lote en un único archivo.</aside>
   <section class="panel">
-    <label>1. Selecciona uno o varios PDF<input id="files" type="file" accept="application/pdf,.pdf" multiple></label>
+    <label for="files">1. Selecciona uno o varios PDF</label>
+    <div class="file-picker"><input id="files" class="file-input" type="file" accept="application/pdf,.pdf" multiple><label class="button secondary file-trigger" for="files">Elegir PDF</label></div>
     <p id="file-summary" class="selection-summary">Todavía no has seleccionado ningún documento.</p>
     <p id="summary" class="selection-summary">Todavía no hay ningún PDF cargado.</p>
     <p class="help">Se pueden procesar hasta 20 PDF y 250 MB por lote. El texto se extrae en el orden que proporciona el documento.</p>
@@ -31,6 +38,7 @@
 </main>
 <script src="../../vendor/pdfjs-3.11.174.min.js"></script>
 <script src="logic.js"></script>
+<script src="i18n.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

@@ -10,8 +10,21 @@
     return source.replace(/[^\p{L}\p{N}_-]+/gu, "-").replace(/^-+|-+$/g, "") || "documento";
   }
 
-  function outputName(filename) {
-    return `${safeStem(filename)}-texto.txt`;
+  function localeKey(value) {
+    const normalized = String(value || "es").replaceAll("_", "-").toLowerCase();
+    if (normalized.startsWith("pt")) return "pt-BR";
+    if (normalized.startsWith("en")) return "en";
+    return "es";
+  }
+
+  const labels = {
+    es: { suffix: "texto", page: "Página", empty: "[Sin texto extraíble]" },
+    en: { suffix: "text", page: "Page", empty: "[No extractable text]" },
+    "pt-BR": { suffix: "texto", page: "Página", empty: "[Sem texto extraível]" }
+  };
+
+  function outputName(filename, locale = "es") {
+    return `${safeStem(filename)}-${labels[localeKey(locale)].suffix}.txt`;
   }
 
   function textFromItems(items) {
@@ -41,14 +54,15 @@
     return output.replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
   }
 
-  function pageHeader(filename, pageNumber) {
-    return `===== ${filename} · Página ${pageNumber} =====`;
+  function pageHeader(filename, pageNumber, locale = "es") {
+    return `===== ${filename} · ${labels[localeKey(locale)].page} ${pageNumber} =====`;
   }
 
-  function combinedText(documents) {
+  function combinedText(documents, locale = "es") {
+    const selected = labels[localeKey(locale)];
     return documents.map((document) => [
       `##### ${document.filename} #####`,
-      document.pages.map((page) => `${pageHeader(document.filename, page.pageNumber)}\n${page.text || "[Sin texto extraíble]"}`).join("\n\n")
+      document.pages.map((page) => `${pageHeader(document.filename, page.pageNumber, locale)}\n${page.text || selected.empty}`).join("\n\n")
     ].join("\n\n")).join("\n\n").trim() + "\n";
   }
 
@@ -58,5 +72,5 @@
     return { documents: documents.length, pages, characters };
   }
 
-  return { safeStem, outputName, textFromItems, pageHeader, combinedText, summary };
+  return { safeStem, outputName, textFromItems, pageHeader, combinedText, summary, localeKey };
 });
