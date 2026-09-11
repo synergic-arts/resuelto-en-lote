@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Extrae texto de varias imágenes con OCR dentro de tu navegador. Edita, copia o descarga el resultado sin subir tus fotos ni documentos.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Imagen a texto con OCR privado · Resuelto en Lote</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+<main class="compact ocr-shell">
+  <nav class="breadcrumbs"><a href="../../">← Todas las aplicaciones</a></nav>
+
+  <header class="ocr-hero">
+    <div class="eyebrow"><span></span> OCR LOCAL · SIN CUENTA</div>
+    <h1>De imagen a <em>texto editable</em></h1>
+    <p>Arrastra capturas, fotos o escaneos. El reconocimiento ocurre en esta pestaña y puedes corregir el texto antes de guardarlo.</p>
+    <div class="proof-strip" aria-label="Controles de privacidad">
+      <strong>0 archivos enviados</strong>
+      <span>Motor servido desde esta misma web</span>
+      <span>Originales intactos</span>
+    </div>
+  </header>
+
+  <section class="workspace" aria-label="Aplicación de OCR">
+    <div class="input-column">
+      <div id="drop-zone" class="scanner-bed" tabindex="0" role="button" aria-controls="files">
+        <div class="scan-line" aria-hidden="true"></div>
+        <div class="paper-icon" aria-hidden="true"><b>Aa</b><i></i><i></i><i></i></div>
+        <strong>Añade tus imágenes</strong>
+        <small>Suelta, pega o selecciona hasta 10 JPG, PNG, WebP o BMP</small>
+        <input id="files" type="file" accept=".jpg,.jpeg,.png,.webp,.bmp,image/jpeg,image/png,image/webp,image/bmp" multiple hidden>
+      </div>
+
+      <div class="settings">
+        <label>Idioma del texto
+          <select id="language">
+            <option value="spa">Español</option>
+            <option value="eng">Inglés</option>
+            <option value="spa+eng">Español + inglés</option>
+          </select>
+        </label>
+        <label>Distribución
+          <select id="layout">
+            <option value="3">Automática</option>
+            <option value="6">Un bloque de texto</option>
+            <option value="11">Texto disperso</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="queue" class="queue" hidden>
+        <div class="queue-heading"><strong id="queue-count"></strong><button id="clear" class="link-button" type="button">Vaciar</button></div>
+        <ol id="file-list"></ol>
+      </div>
+
+      <button id="recognize" type="button" disabled>Extraer el texto</button>
+      <p id="status" class="status" role="status" aria-live="polite">Añade una o varias imágenes.</p>
+      <div class="progress-track" aria-hidden="true"><span id="progress"></span></div>
+      <p class="limits">Máximo: 10 imágenes, 20 MB por archivo, 100 MB por lote y 40 megapíxeles por imagen.</p>
+    </div>
+
+    <div class="output-column">
+      <div class="output-heading">
+        <div><span class="mini-label">RESULTADO</span><h2>Texto reconocido</h2></div>
+        <div class="output-actions">
+          <button id="copy-all" class="secondary" type="button" disabled>Copiar todo</button>
+          <button id="download-all" class="secondary" type="button" disabled>Descargar TXT</button>
+        </div>
+      </div>
+      <div id="empty-result" class="empty-result"><b>El texto aparecerá aquí</b><span>Podrás editarlo antes de copiarlo o descargarlo.</span></div>
+      <div id="results" class="ocr-results" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="honest-note">
+    <h2>Para obtener una lectura mejor</h2>
+    <p>Usa una imagen nítida, recta, con buena luz y letras de tamaño suficiente. El OCR puede confundir caracteres, columnas o escritura a mano: revisa siempre el texto importante.</p>
+  </section>
+
+  <footer>
+    Esta versión reconoce imágenes, no archivos PDF. La primera ejecución carga el motor OCR y el idioma desde esta misma web; después el navegador puede conservarlos en caché. Tesseract.js y los modelos Tesseract se distribuyen con sus licencias originales.
+  </footer>
+</main>
+<script src="../../core.js"></script>
+<script src="../../vendor/tesseract-7.0.0/tesseract.min.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
